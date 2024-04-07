@@ -1,0 +1,28 @@
+{
+  "name": "create-my-api",
+  "version": "1.0.9",
+  "description": "Welcome to the CLI For Build API",
+  "main": "index.js",
+  "bin": {
+    "build-api": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Puskar-Roy/build-api.git"
+  },
+  "author": "Puskar Roy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Puskar-Roy/build-api/issues"
+  },
+  "homepage": "https://github.com/Puskar-Roy/build-api#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "enquirer": "^2.4.1",
+    "colorette": "^2.0.20"
+  }
+}
