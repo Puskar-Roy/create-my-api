@@ -5,14 +5,12 @@ const projectPrompt = {
   initial: "backend",
 };
 
-
 const dataBasePrompt = {
   type: "select",
   name: "database",
   message: "Select a Database:",
   choices: ["MongoDB", "PostgreSQL"],
 };
-
 
 const backendPrompt = {
   type: "select",
@@ -27,7 +25,6 @@ const jsPrompt = {
   message: "📝 Select Language? ",
   choices: ["Javascript", "Typescript"],
 };
-    
 
 const goPrompt = {
   type: "select",
@@ -36,4 +33,10 @@ const goPrompt = {
   choices: ["Go"],
 };
 
-module.exports = { projectPrompt , dataBasePrompt , backendPrompt , jsPrompt , goPrompt}
+module.exports = {
+  projectPrompt,
+  dataBasePrompt,
+  backendPrompt,
+  jsPrompt,
+  goPrompt,
+};

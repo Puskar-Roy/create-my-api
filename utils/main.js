@@ -36,13 +36,13 @@ const copyDir = (src, dest, callback) => {
       });
     });
   };
-
+  
   fs.access(dest, (err) => {
     if (err) {
       fs.mkdirSync(dest, { recursive: true });
     }
     copy(src, dest);
-    callback(null); 
+    callback(null);
   });
 };
 
