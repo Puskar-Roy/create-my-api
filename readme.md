@@ -2,8 +2,9 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/BoBsRepository/lets-create-api">
-    <img src="https://miro.medium.com/v2/resize:fit:1400/1*Ld72aUcByxiIvrd3Fs-8cw@2x.jpeg" alt="Logo" width="270" height="100">
+  <a href="https://github.com/Puskar-Roy/create-my-api">
+    <img src="./docs/create-api.png" alt="Logo" width="170" height="170">
+    
   </a>
 
   <h3 align="center">Create My API</h3>
