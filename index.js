@@ -7,7 +7,7 @@ runCLI(copyDir).then(() => {
   console.log(green("  🎉 You are ready!\n"));
   console.log(
     yellow(
-      `  🌟 NOTE: Please fill out the .env file first to avoid any errors.`
-    )
+      `  🌟 NOTE: Please fill out the .env file first to avoid any errors.`,
+    ),
   );
 });

@@ -32,9 +32,9 @@ const runCLI = async (copyDir) => {
           console.log("Failed to copy directory:", err);
           return;
         }
-      }
+      },
     );
-  }else if (
+  } else if (
     backendResponse.backend === "Node Js and Express Js" &&
     languageResponse.language === "Typescript" &&
     databaseResponse.database === "MongoDB"
@@ -47,9 +47,9 @@ const runCLI = async (copyDir) => {
           console.log("Failed to copy directory:", err);
           return;
         }
-      }
+      },
     );
-  }else if (
+  } else if (
     backendResponse.backend === "Node Js and Express Js" &&
     languageResponse.language === "Typescript" &&
     databaseResponse.database === "PostgreSQL"
@@ -62,10 +62,10 @@ const runCLI = async (copyDir) => {
           console.log("Failed to copy directory:", err);
           return;
         }
-      }
+      },
     );
   }
-    greetings(projectResponse.projectname, languageResponse.language);
+  greetings(projectResponse.projectname, languageResponse.language);
 };
 
 module.exports = runCLI;
