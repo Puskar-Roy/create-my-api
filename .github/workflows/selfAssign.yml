@@ -12,7 +12,7 @@ jobs:
         id: find_command
         uses: actions/github-script@v4
         with: 
-          github-token: ${{secrets.APIVerse_SECRET}}
+          github-token: ${{secrets.My_SEC}}
           script: |
             const commentBody = context.payload.comment.body;
             const assignUsing = '/gdsc';
