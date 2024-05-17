@@ -1,0 +1,33 @@
+name: Improving API Functionality!🛠️
+description: Add new functionalities to the existing API information in this repository.
+title: "[API Improvement] : " 
+
+body:
+  - type: textarea
+    id: improve_api_functionality
+    attributes:
+      label: Quick Description 🛠️
+      description: Enter a brief description of the enhancements you plan to make to the existing API in the repository.
+      placeholder: Please provide a short summary of the additional features you intend to add! You need at least 2 enhancements for your PR to be merged!.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: open-source-program
+    attributes:
+      label: Select the open-source program you're contributing to 
+      multiple: true
+      options:
+        - SSOC
+        - Other
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: code-of-conduct
+    attributes:
+      label: Adherence to Code of Conduct
+      description: By submitting this issue, you agree to abide by our [CONTRIBUTING GUIDELINES.](../blob/master/CONTRIBUTING.md)
+      options:
+        - label: I adhere to the [CONTRIBUTING GUIDELINES](../blob/master/CONTRIBUTING.md) of this project.
+          required: true

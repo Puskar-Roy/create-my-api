@@ -1,0 +1,33 @@
+name: Documentation Issues!📝
+description: Have you noticed any errors in the documentation?
+title: "[Documentation Issue] : "
+
+body:
+  - type: textarea
+    id: documentation-issues
+    attributes:
+      label: Brief Description 📝
+      description: Enter a brief description of the documentation errors you have identified.
+      placeholder: You need at least 5 documentation errors to get your PRs merged.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: open-source-contribution
+    attributes:
+      label: Select the open-source program you are contributing to
+      multiple: true
+      options:
+        - SSOC
+        - Other
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: code-of-conduct
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to our [CONTRIBUTING GUIDELINES.](../blob/master/CONTRIBUTING.md)
+      options:
+        - label: I agree to the [CONTRIBUTING GUIDELINES](../blob/master/CONTRIBUTING.md) of this project.
+          required: true
