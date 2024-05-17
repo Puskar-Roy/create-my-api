@@ -9,6 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
+    "dev":"cd apps/client ; npm run dev",
     "prettie": "npx prettier . --write"
   },
   "repository": {
