@@ -17,7 +17,7 @@ jobs:
             const { owner, repo, number } = context.issue;
             const commentAuthor = context.payload.issue.user.login;
             const commentBody = `Hey @${commentAuthor}👋! Thanks for raising this issue and demonstrating your interest in contributing to our project!🚀
-                We value your engagement and eagerly anticipate your contributions. Should you wish to get involved, please use the /gdsc command to self-assign the issue.
+                We value your engagement and eagerly anticipate your contributions. Should you wish to get involved, please use the /assignme command to self-assign the issue.
                 This issue provides an excellent opportunity for us to enhance our project, and we're excited to have you join us! Please take a moment to review our [CONTRIBUTING GUIDELINES](../blob/master/CONTRIBUTING.md) before getting started.
                 If you have any questions or need assistance, feel free to reach out to us on [LinkedIn](https://www.linkedin.com/in/puskar-roy/).❤️
             `;

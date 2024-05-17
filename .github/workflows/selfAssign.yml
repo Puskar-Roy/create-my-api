@@ -15,7 +15,7 @@ jobs:
           github-token: ${{secrets.My_SEC}}
           script: |
             const commentBody = context.payload.comment.body;
-            const assignUsing = '/gdsc';
+            const assignUsing = '/assignme';
             const isCommandPresent = commentBody.includes(assignUsing);
             const commenter = context.payload.comment.user.login;
             const isSelf = commenter === 'Puskar-Roy'; 
