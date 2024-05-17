@@ -35,6 +35,10 @@
 - [Git](https://git-scm.com/) installed on your machine 🐙
 
 
- 
- 
- 
+
+<h2 align = "center">Contributors of create-my-api 🚀</h2>
+<div align = "center">
+<a href="https://github.com/Puskar-Roy/create-my-api/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Puskar-Roy/create-my-api" />
+</a>
+</div>
