@@ -1,62 +1,75 @@
-name: Self-Assign Issue
-on:
-  issue_comment:
-    types:
-      - created
+name: self assign issue 
+on: 
+    issue_comment:
+        types:
+            - created
+jobs: 
+    assign:
+        runs-on : ubuntu-latest
+        steps:
+           - name: Check for command
+             id: find_command
+             uses: actions/github-script@v4
+             with: 
+                 github-token: ${{secrets.MY_SEC}}
+                 script: |
+                    const commentbody = context.payload.comment.body;
+                    const assignUsing = '/assignme';
+                    const isCommandPresent = commentbody.includes(assignUsing);
+                    const commentor = context.payload.comment.user.login;
+                    const Repoowner = 'Puskar-Roy';
+                    console.log(`${Repoowner}`);
+                    console.log(`${commentor}`);
+                    const isSelf = commentor === 'Puskar-Roy';
+                    console.log(`${isSelf}`);
+                    console.log(`${context.payload.issue.assignees.map(assignee => assignee.login)}`);
 
-jobs:
-  self_assign:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check for assignment command
-        id: verify_command
-        uses: actions/github-script@v4
-        with:
-          github-token: ${{ secrets.MY_SEC }}
-          script: |
-            const commentBody = context.payload.comment.body;
-            const assignmentCommand = '/assignme';
-            const commandExists = commentBody.includes(assignmentCommand);
-            const commenter = context.payload.comment.user.login;
-            const repoOwner = 'Puskar-Roy';
-            
-            const assigneeList = context.payload.issue.assignees.map(assignee => assignee.login);
-            const hasAssignees = assigneeList.length > 0;
+                    const noOfAssignees = context.payload.issue.assignees.length>0; 
+                    console.log(`No of Assignees : ${noOfAssignees}`);
+                    if(isCommandPresent && isSelf)
+                    {
+                        console.log('Instruction given to contributor comment, so ignore');
+                        console.log(`::set-output name=toAssign::false`);
+                        console.log(`Ins from repo owner end`);
+                    }
+                    else if(isCommandPresent && noOfAssignees)
+                    {
+                        console.log('Issue is already assigned');
+                        const { owner,repo, number} = context.issue;
+                        const commentbody = `Hey @${commentor}, The issue is already assigned and couldn't be assigned to you again.You can work on some other issue or create your own issue.🚀💗`;
+                        github.issues.createComment({ owner, repo, issue_number: number, body: commentbody });
+                        console.log(`::set-output name=toAssign::false`);
+                        console.log('Command present and issue already assigned');
+                    }
+                    else if(isCommandPresent)
+                    {
+                        console.log(`::set-output name=toAssign::true`);
+                        console.log('Command present and issue not assigned');
+                    }
+                    else
+                    {
+                        console.log(`::set-output name=toAssign::false`);
+                        console.log('Command not present');
+                    }
+           - name: Assign the issue
+             if: steps.find_command.outputs.toAssign == 'true'
+             id: assign_issue
+             uses: actions/github-script@v4
+             with:
+              github-token: ${{ secrets.MY_SEC}}
+              script: |
+                console.log('Demo Text');
+                const { owner, repo, number } = context.issue;
+                const assignee = context.payload.comment.user.login;
+                await github.issues.addAssignees({ owner, repo, issue_number: number, assignees: [assignee] });
+                console.log(`Assigned the issue to ${assignee}.`);
+                    
 
-            console.log(`Comment Body: ${commentBody}`);
-            console.log(`Commenter: ${commenter}`);
-            console.log(`Repository Owner: ${repoOwner}`);
-            console.log(`Command Exists: ${commandExists}`);
-            console.log(`Assignees: ${assigneeList}`);
-            console.log(`Has Assignees: ${hasAssignees}`);
 
-            if (commandExists && hasAssignees) {
-              console.log('Issue already assigned.');
-              const { owner, repo, number } = context.issue;
-              const responseMessage = `Hey @${commenter}, this issue is already assigned. Please find another issue to work on or create a new one. 🚀`;
-              github.issues.createComment({ owner, repo, issue_number: number, body: responseMessage });
-              return { toAssign: false };
-            } else if (commandExists) {
-              if (commenter === repoOwner) {
-                console.log('Repository owner cannot self-assign.');
-                return { toAssign: false };
-              } else {
-                console.log('Command found and issue not assigned.');
-                return { toAssign: true };
-              }
-            } else {
-              console.log('No command found.');
-              return { toAssign: false };
-            }
+        
 
-      - name: Assign the issue
-        if: steps.verify_command.outputs.toAssign == 'true'
-        uses: actions/github-script@v4
-        with:
-          github-token: ${{ secrets.MY_SEC }}
-          script: |
-            console.log('Assigning issue...');
-            const { owner, repo, number } = context.issue;
-            const assignee = context.payload.comment.user.login;
-            await github.issues.addAssignees({ owner, repo, issue_number: number, assignees: [assignee] });
-            console.log(`Successfully assigned the issue to ${assignee}.`);
+    
+
+
+
+
