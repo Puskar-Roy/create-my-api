@@ -22,7 +22,7 @@ export default {
       globals: globals.browser,
     },
     {
-      ignores: [".templates/*"],
+      ignores: [".templates/*","./.github/*"],
     },
   ],
   extends: ["plugin:js/recommended"],

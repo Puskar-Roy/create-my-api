@@ -33,7 +33,10 @@ jobs:
             } else if (isCommandPresent && hasAssignees) {
               console.log('Command present, issue already assigned');
               const { owner, repo, number } = context.issue;
-              const commentBody = `Hey @${commenter}, the issue is already assigned and couldn't be assigned to you again. You can work on another issue or create your own issue.🚀💗`;
+              const commentBody = `
+              Hey @${commenter}, the issue has already been assigned and cannot be assigned to you again. Feel free to work on another issue or create a new one.😥
+              
+              `;
               github.issues.createComment({ owner, repo, issue_number: number, body: commentBody });
               console.log('::set-output name=toAssign::false');
             } else if (isCommandPresent) {

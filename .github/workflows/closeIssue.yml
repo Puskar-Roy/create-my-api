@@ -1,0 +1,27 @@
+name: Close issue comment
+on:
+  issues:
+    types:
+      - closed
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Issue close
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.MY_SEC }}
+          script: |
+            const { owner, repo, number } = context.issue;
+            const commentauthor = context.payload.issue.user.login;
+            const commentBody = `
+            Hello @${commentauthor}! We'd like to inform you that the issue has been resolved and is now closed. We appreciate your understanding and look forward to your continued involvement with our repository!🤗
+            If you encounter any further issues, please don't hesitate to reach out to us on [LinkedIn](https://www.linkedin.com/in/puskar-roy/). Thank you for your support!❣️
+            Happy coding!✨ We hope to see you again soon!❣️
+
+            `;
+
+            await github.issues.createComment({ owner, repo, issue_number: number, body: commentBody });
+            console.log(`Commented on the issue: ${commentBody}.`);

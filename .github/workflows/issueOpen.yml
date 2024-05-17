@@ -16,7 +16,12 @@ jobs:
           script: |
             const { owner, repo, number } = context.issue;
             const commentAuthor = context.payload.issue.user.login;
-            const commentBody = `Hello @${commentAuthor}👋! Thank you for opening this issue and showing interest in contributing to our project!🚀\nWe appreciate your participation and look forward to your contributions. Please use the command /gdsc to self-assign the issue if you're interested.\nThis issue is a great opportunity for us to enhance our project, and we're excited to have you on board! Please make sure to follow our [CONTRIBUTING GUIDELINES](../blob/master/CONTRIBUTING.md).\nFeel free to reach out to us on [Linked IN](https://www.linkedin.com/in/puskar-roy/) if you need any help or have any questions.❤️`;
-            
+            const commentBody = `
+                Hey @${commentAuthor}👋! Thanks for raising this issue and demonstrating your interest in contributing to our project!🚀
+                We value your engagement and eagerly anticipate your contributions. Should you wish to get involved, please use the /gdsc command to self-assign the issue.
+                This issue provides an excellent opportunity for us to enhance our project, and we're excited to have you join us! Please take a moment to review our [CONTRIBUTING GUIDELINES](../blob/master/CONTRIBUTING.md) before getting started.
+                If you have any questions or need assistance, feel free to reach out to us on [LinkedIn](https://www.linkedin.com/in/puskar-roy/).❤️
+            `;
+
             await github.issues.createComment({ owner, repo, issue_number: number, body: commentBody });
             console.log(`Commented on the issue: ${commentBody}.`);
