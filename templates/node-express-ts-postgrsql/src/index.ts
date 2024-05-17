@@ -3,7 +3,6 @@ import helmet from 'helmet';
 import xss from 'xss-clean';
 import hpp from 'hpp';
 import rateLimit from 'express-rate-limit';
-import mongoSanitize from 'express-mongo-sanitize';
 import cors, { CorsOptions } from 'cors';
 import morgan from 'morgan';
 import config from './config/config';
@@ -32,7 +31,6 @@ app.use(express.json());
 app.use(helmet());
 app.use(xss());
 app.use(hpp());
-app.use(mongoSanitize());
 const limiter = rateLimit({
   windowMs: 10 * 60 * 1000,
   max: 100,
