@@ -1,0 +1,22 @@
+name: Issue Opening Comment!
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Issue Opened
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.MY_SEC }}
+          script: |
+            const { owner, repo, number } = context.issue;
+            const commentAuthor = context.payload.issue.user.login;
+            const commentBody = `Hello @${commentAuthor}👋! Thank you for opening this issue and showing interest in contributing to our project!🚀\nWe appreciate your participation and look forward to your contributions. Please use the command /gdsc to self-assign the issue if you're interested.\nThis issue is a great opportunity for us to enhance our project, and we're excited to have you on board! Please make sure to follow our [CONTRIBUTING GUIDELINES](../blob/master/CONTRIBUTING.md).\nFeel free to reach out to us on [Linked IN](https://www.linkedin.com/in/puskar-roy/) if you need any help or have any questions.❤️`;
+            
+            await github.issues.createComment({ owner, repo, issue_number: number, body: commentBody });
+            console.log(`Commented on the issue: ${commentBody}.`);
