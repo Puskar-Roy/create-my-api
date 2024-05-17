@@ -1,4 +1,4 @@
-name: Assign Issue
+name: Self-Assign Issue
 on:
   issue_comment:
     types:
@@ -20,28 +20,30 @@ jobs:
             const commenter = context.payload.comment.user.login;
             const repoOwner = 'Puskar-Roy';
             
-            const isOwnIssue = commenter === repoOwner;
             const assigneeList = context.payload.issue.assignees.map(assignee => assignee.login);
             const hasAssignees = assigneeList.length > 0;
 
+            console.log(`Comment Body: ${commentBody}`);
             console.log(`Commenter: ${commenter}`);
             console.log(`Repository Owner: ${repoOwner}`);
-            console.log(`Is Own Issue: ${isOwnIssue}`);
+            console.log(`Command Exists: ${commandExists}`);
             console.log(`Assignees: ${assigneeList}`);
             console.log(`Has Assignees: ${hasAssignees}`);
 
-            if (commandExists && isOwnIssue) {
-              console.log('Ignoring command from repository owner.');
-              return { toAssign: false };
-            } else if (commandExists && hasAssignees) {
+            if (commandExists && hasAssignees) {
               console.log('Issue already assigned.');
               const { owner, repo, number } = context.issue;
               const responseMessage = `Hey @${commenter}, this issue is already assigned. Please find another issue to work on or create a new one. 🚀`;
               github.issues.createComment({ owner, repo, issue_number: number, body: responseMessage });
               return { toAssign: false };
             } else if (commandExists) {
-              console.log('Command found and issue not assigned.');
-              return { toAssign: true };
+              if (commenter === repoOwner) {
+                console.log('Repository owner cannot self-assign.');
+                return { toAssign: false };
+              } else {
+                console.log('Command found and issue not assigned.');
+                return { toAssign: true };
+              }
             } else {
               console.log('No command found.');
               return { toAssign: false };
@@ -53,6 +55,7 @@ jobs:
         with:
           github-token: ${{ secrets.MY_SEC }}
           script: |
+            console.log('Assigning issue...');
             const { owner, repo, number } = context.issue;
             const assignee = context.payload.comment.user.login;
             await github.issues.addAssignees({ owner, repo, issue_number: number, assignees: [assignee] });
