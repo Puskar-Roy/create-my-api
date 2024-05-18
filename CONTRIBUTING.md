@@ -16,7 +16,7 @@ Ready to jump in? Follow these steps to start contributing:
      ```
 
 3. **Create a Branch (Mandatory) 🌿**
-   - It’s mandatory to create a new branch for your changes. Don’t make changes directly to the `main` branch of your fork. Create a new branch with:
+   - It’s mandatory to create a new branch for your changes. Don’t make changes directly to the `master` branch of your fork. Create a new branch with:
      ```bash
      git checkout -b feature/your-feature-name
      ```

@@ -56,6 +56,33 @@ In addition to starter templates, we also provide __Existing APIs__ that you can
 - `2FA Auth`
 - `Real-time Chat API`
 
+## 🛠️ Tech Stack
+__Create My-API supports a variety of technologies and databases:__
+
+
+
+<div align="center">
+
+
+
+
+### Languages
+<img src="https://skillicons.dev/icons?i=javascript,typescript&theme=dark" />
+
+### Frameworks
+<img src="https://skillicons.dev/icons?i=nextjs,tailwindcss,nodejs,express,nestjs&theme=dark" />
+
+### Databases
+<img src="https://skillicons.dev/icons?i=mongodb,postgresql&theme=dark" />
+
+### Services
+<img src="https://skillicons.dev/icons?i=npm,vercel,prisma&theme=dark" />
+
+
+</div>
+
+
+
 ## ❤️ Contributing
 
 We welcome contributions to Create My-API! 
