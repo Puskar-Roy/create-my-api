@@ -9,8 +9,7 @@ const {
   nestPrompt,
   nestJsOrmPromt,
   servicePrompt,
-  existingAPIPromt
-
+  existingAPIPromt,
 } = require("../scripts/prompts");
 
 const runCLI = async (copyDir) => {
@@ -45,7 +44,6 @@ const runCLI = async (copyDir) => {
           }
         },
       );
-      
     } else if (
       backendResponse.backend === "Node Js and Express Js" &&
       languageResponse.language === "Typescript" &&
@@ -79,8 +77,32 @@ const runCLI = async (copyDir) => {
     }
     greetings(projectResponse.projectname, languageResponse.language);
   } else {
-        const existingAPIResponse = await prompt(existingAPIPromt);
+    const existingAPIResponse = await prompt(existingAPIPromt);
+    if (existingAPIResponse.existingAPI === "Attendance Portal") {
+      copyDir(
+        path.resolve(__dirname, "../packages/Attendance_Portal_API"),
+        path.resolve(process.cwd(), projectResponse.projectname),
+        (err) => {
+          if (err) {
+            console.log("Failed to copy directory:", err);
+            return;
+          }
+        },
+      );
+    } else if (existingAPIResponse.existingAPI === "E-learning Platform") {
+      copyDir(
+        path.resolve(__dirname, "../packages/E-learning_Platform_API"),
+        path.resolve(process.cwd(), projectResponse.projectname),
+        (err) => {
+          if (err) {
+            console.log("Failed to copy directory:", err);
+            return;
+          }
+        },
+      );
+    }
 
+    greetings(existingAPIResponse.existingAPI, "Typescript");
   }
 };
 
