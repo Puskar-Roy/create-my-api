@@ -12,7 +12,7 @@ Ready to jump in? Follow these steps to start contributing:
 2. **Clone Your Fork 🖥️**
    - Clone your forked repository to your local machine using:
      ```bash
-     git clone https://github.com/your-username/create-my-api.git
+     git clone https://github.com/Puskar-Roy/create-my-api
      ```
 
 3. **Create a Branch (Mandatory) 🌿**

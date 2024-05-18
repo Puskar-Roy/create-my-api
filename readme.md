@@ -70,7 +70,7 @@ To get started, please check out the [CONTRIBUTING.md](./CONTRIBUTING.md) file f
 
 - __If you're working on the documentation website, please work inside the `apps` directory *(client for Next.js frontend and server for Node.js Express backend).*__
 
-__*Note: If contributions do not follow the guidelines specified in the [CONTRIBUTING.md](./CONTRIBUTING.md) file, the pull request will not be accepted.*__
+__*Note: If contributions do not follow the guidelines specified in the [CONTRIBUTING.md](./CONTRIBUTING.md) file, the pull request will not be accepted ❌.*__
 
 
 
