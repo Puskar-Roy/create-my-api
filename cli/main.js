@@ -5,27 +5,34 @@ const {
   projectPrompt,
   dataBasePrompt,
   backendPrompt,
-  goPrompt,
   jsPrompt,
+  nestPrompt,
+  nestJsOrmPromt,
+  servicePrompt
 } = require("../scripts/prompts");
 
 const runCLI = async (copyDir) => {
   const projectResponse = await prompt(projectPrompt);
+  const serviceResponse = await prompt(servicePrompt);
   const backendResponse = await prompt(backendPrompt);
   const languageResponse =
     backendResponse.backend === "Node Js and Express Js"
       ? await prompt(jsPrompt)
-      : await prompt(goPrompt);
-
+      : await prompt(nestPrompt);
+  var nestOrm;
+  if (backendResponse.backend == "Nest Js") {
+    nestOrm = await prompt(nestJsOrmPromt);
+  }
   const databaseResponse = await prompt(dataBasePrompt);
 
   if (
-    backendResponse.backend === "Go Lang" &&
-    languageResponse.language === "Go" &&
-    databaseResponse.database === "MongoDB"
+    backendResponse.backend === "Nest Js" &&
+    languageResponse.language === "Typescript" &&
+    databaseResponse.database === "PostgreSQL" &&
+    nestOrm.orm === "Type ORM"
   ) {
     copyDir(
-      path.resolve(__dirname, "../templates/go-lang-mongo"),
+      path.resolve(__dirname, "../templates/nest-ts-typeorm-postgrsql"),
       path.resolve(process.cwd(), projectResponse.projectname),
       (err) => {
         if (err) {
@@ -34,6 +41,7 @@ const runCLI = async (copyDir) => {
         }
       },
     );
+    console.log("Nest Js");
   } else if (
     backendResponse.backend === "Node Js and Express Js" &&
     languageResponse.language === "Typescript" &&
