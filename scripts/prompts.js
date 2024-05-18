@@ -11,7 +11,7 @@ const servicePrompt = {
   type: "select",
   name: "service",
   message: "Select a Service:",
-  choices: ["Starter API Templates", "Existing APIs"],
+  choices: ["Starter API", "Existing API"],
 };
 
 
@@ -49,6 +49,13 @@ const nestJsOrmPromt = {
   choices: ["Type ORM","Prisma"],
 };
 
+const existingAPIPromt = {
+  type: "select",
+  name: "existingAPI",
+  message: "📝 Select an API? ",
+  choices: ["Attendance Portal", "E-learning Platform"],
+};
+
 
 module.exports = {
   projectPrompt,
@@ -57,5 +64,6 @@ module.exports = {
   jsPrompt,
   nestPrompt,
   nestJsOrmPromt,
-  servicePrompt
+  servicePrompt,
+  existingAPIPromt
 };
