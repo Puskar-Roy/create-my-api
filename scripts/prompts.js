@@ -10,7 +10,7 @@ const projectPrompt = {
 const servicePrompt = {
   type: "select",
   name: "service",
-  message: "Select a Service:",
+  message: "🔄 Select a Service:",
   choices: ["Starter API", "Existing API"],
 };
 
@@ -18,14 +18,14 @@ const servicePrompt = {
 const dataBasePrompt = {
   type: "select",
   name: "database",
-  message: "Select a Database:",
+  message: "💾 Select a Database:",
   choices: ["MongoDB", "PostgreSQL"],
 };
 
 const backendPrompt = {
   type: "select",
   name: "backend",
-  message: "Select a Backend Technology:",
+  message: "🚀 Select a Backend Technology:",
   choices: ["Node Js and Express Js", "Nest Js"],
 };
 
@@ -45,8 +45,8 @@ const nestPrompt = {
 const nestJsOrmPromt = {
   type: "select",
   name: "orm",
-  message: "📝 Select ORM? ",
-  choices: ["Type ORM","Prisma"],
+  message: "📚 Select ORM? ",
+  choices: ["Type ORM", "Prisma"],
 };
 
 const existingAPIPromt = {
