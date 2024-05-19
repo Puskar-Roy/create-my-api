@@ -32,7 +32,7 @@
    npx create-my-api@latest
 ```
 
- ![api](./docs/assets/demo1.png)
+ - ![api](./docs/assets/demo1.png)
 
 
 ### Then Chosse a Configuration, Thats it ⌨️
