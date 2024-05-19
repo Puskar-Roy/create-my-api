@@ -1,6 +1,6 @@
 {
   "name": "create-my-api",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Welcome to the CLI For Build API",
   "main": "index.js",
   "bin": {
