@@ -1,0 +1,53 @@
+name : Create a New API !🤓
+description: Add a API for CLI!
+title: "[ADD API] : " 
+
+
+body:
+  - type: textarea
+    id: api-summary
+    attributes:
+      label: API Summary 📝
+      description: Provide a concise summary of the API you created.
+      placeholder: Please include a brief overview and mention the purpose of your API.
+    validations:
+      required: true
+
+  - type: textarea
+    id: api-development
+    attributes:
+      label: Development Approach 🚀
+      description: Give a brief explanation of your API's design and development process.
+      placeholder: Keep it concise and to the point!
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: api-deployment
+    attributes:
+      label: Deployment Status
+      description: Have you deployed your API?
+      multiple: false
+      options:
+        - "Yes"
+        - "No"
+
+  - type: dropdown
+    id: open-source-contribution
+    attributes:
+      label: Select the open source program you are contributing to
+      multiple: true
+      options:
+        - SSOC 
+        - Other
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: code-of-conduct
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to our [CONTRIBUTING GUIDELINES.](../blob/master/CONTRIBUTING.md)
+      options:
+        - label: I adhere to the [CONTRIBUTING GUIDELINES](../blob/master/CONTRIBUTING.md) of this project.
+          required: true

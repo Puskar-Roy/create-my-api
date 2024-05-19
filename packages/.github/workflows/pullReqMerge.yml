@@ -1,0 +1,50 @@
+name: Comment on PR Closure
+
+on:
+  pull_request_target:
+    types:
+      - closed
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check PR Merge Status
+        id: pr_status
+        run: echo "::set-output name=merged::${{ github.event.pull_request.merged }}"
+
+      - name: Comment on PR Closure
+        if: steps.pr_status.outputs.merged == 'true'
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.MY_SEC }}
+          script: |
+            const { owner, repo, number } = context.issue;
+            const commentAuthor = context.payload.pull_request.user.login;
+            const commentBody = `
+            Hey @${commentAuthor}! We're excited to let you know that your pull request has been merged into the APIverse🚀🎁
+            Your commitment, effort, and expertise have greatly influenced our project, and we're incredibly thankful for your contributions.😇
+            Your code is now part of our expanding ecosystem, assisting developers worldwide in creating exceptional APIs.❣️🔥
+            Happy Coding! ✨ We look forward to seeing you again soon!❣️
+            
+            
+            `;
+            await github.issues.createComment({ owner, repo, issue_number: number, body: commentBody });
+            console.log(`Commented on the closed PR: ${commentBody}.`);
+        
+      - name: Comment on PR Closure
+        if: steps.pr_status.outputs.merged != 'true'
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.MY_SEC }}
+          script: |
+            const { owner, repo, number } = context.issue;
+            const commentAuthor = context.payload.pull_request.user.login;
+            const commentBody = `Hey @${commentAuthor}, I wanted to inform you that we've decided to close your pull request.🙇
+
+            If you have any questions or need assistance, please don't hesitate to reach out to us on Discord.
+            Thank you for your understanding!❣️
+            Happy coding! ✨ We hope to see you again soon!❣️           
+            
+            `);
