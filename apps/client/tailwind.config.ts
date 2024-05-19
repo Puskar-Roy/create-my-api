@@ -24,7 +24,7 @@ const config: Config = {
     extend: {
       colors: {
         npmD: "#780500",
-        npmE: "#cb3805",
+        npmE: "#f68857",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

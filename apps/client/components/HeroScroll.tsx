@@ -3,6 +3,13 @@ import React from "react";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import Image from "next/image";
 import test from '@/public/npm-api.png'
+import { Copse, Raleway, Montserrat } from "next/font/google";
+
+const alata = Montserrat({
+  weight: "800",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export function HeroScrollDemo() {
   return (
@@ -13,7 +20,21 @@ export function HeroScrollDemo() {
             <h1 className="text-4xl font-semibold text-black dark:text-white">
               Unleash the power of <br />
               <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
-                Scroll Animations
+                <span
+                  className={`text-orange-300 font-extrabold ${alata.className}`}
+                >
+                  Create
+                </span>{" "}
+                <span
+                  className={`text-orange-500 font-extrabold ${alata.className}`}
+                >
+                  My
+                </span>{" "}
+                <span
+                  className={`text-red-500 font-extrabold ${alata.className}`}
+                >
+                  API
+                </span>
               </span>
             </h1>
           </>
