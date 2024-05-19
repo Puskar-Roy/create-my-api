@@ -2,8 +2,8 @@
 import React from "react";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import Image from "next/image";
-import test from '@/public/npm-api.png'
-import { Copse, Raleway, Montserrat } from "next/font/google";
+import test from "@/public/create-my-api-npm.png";
+import { Montserrat } from "next/font/google";
 
 const alata = Montserrat({
   weight: "800",
