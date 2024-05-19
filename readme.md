@@ -3,16 +3,11 @@
 <br />
 <div align="center">
   <a href="https://github.com/Puskar-Roy/create-my-api">
-    <img src="./docs/create-api.png" alt="Logo" width="170" height="170">
+    <img src="./docs/assets/create-api.png" alt="Logo" width="170" height="170">
     
   </a>
 
-  <h3 align="center">Create My API</h3>
-  
-  ```bash
-   npx create-my-api@latest
-  ```
-
+  <h1 align="center">Create My API ✨</h1> 
   <p align="center">
     Welcome to the Create My API CLI your go-to tool for rapidly setting up production-ready API projects with ease! Whether you're a seasoned developer or just getting started, our CLI provides a streamlined 
     experience for creating RESTful APIs using various backend technologies and database combinations.
@@ -27,6 +22,35 @@
     <a href="https://github.com/Puskar-Roy/create-my-api/issues">Request Feature</a>
   </p>
 </div>
+
+
+## ⚙️ Installation
+
+### Run This Command 🚀
+
+```bash
+   npx create-my-api@latest
+```
+
+ ![api](./docs/assets/demo1.png)
+
+
+### Then Chosse a Configuration, Thats it ⌨️
+
+
+ - **Express Js, Javascript, Mongo DB**
+
+ - ![api](./docs/assets/demo6.png)
+
+ - **Nest Js, Typescript, Prisma, Postgre SQL**
+
+ - ![api](./docs/assets/demo7.png)
+
+- **Existing E-learning Platform API**
+ - ![api](./docs/assets/demo8.png)
+
+
+ *__Note - You Can Check [Guidebook](./docs/md/Guidebook.md) for more details__*
 
 
 ## 🛠️ Prerequisites
