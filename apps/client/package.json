@@ -9,12 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tabler/icons-react": "^3.4.0",
+    "@tsparticles/engine": "^3.4.0",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.4.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.2.4",
+    "mini-svg-data-uri": "^1.4.4",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
-    "tailwind-merge": "^2.3.0"
+    "react-tsparticles": "^2.12.2",
+    "tailwind-merge": "^2.3.0",
+    "tsparticles": "^2.10.1"
   },
   "devDependencies": {
     "@types/node": "^20",
