@@ -22,10 +22,27 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        npmD: "#780500",
+        npmE: "#cb3805",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+
+      keyframes: {
+        float: {
+          "0%": { transform: "translateY(0)" },
+          "25%": { transform: "translateY(-5px)" },
+          "50%": { transform: "translateY(-10px)" },
+          "75%": { transform: "translateY(-5px)" },
+          "100%": { transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        float: "float 4s ease-in-out infinite",
       },
     },
   },
