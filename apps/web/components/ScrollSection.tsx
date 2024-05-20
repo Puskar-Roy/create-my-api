@@ -18,7 +18,7 @@ export function InfinitetDemo() {
 
   return (
     <div
-      className="h-[300vh] bg-transparent w-full rounded-md relative pt-40 overflow-clip"
+      className="h-[100vh] bg-transparent w-full rounded-md relative pt-40 overflow-clip"
       ref={ref}
     >
       <GoogleGeminiEffect
