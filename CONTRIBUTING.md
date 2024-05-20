@@ -28,17 +28,17 @@ Here are some key areas where you can make a difference:
 a. **Add a New API Template 📄**
    - We’re always looking to expand our library of API templates. If you have a cool setup that isn’t currently covered, feel free to create a new template. Ensure your template is well-documented and follows our coding standards.
 
-   *If you want to add a new API, please place it inside the `packages` directory.*
+   *If you want to add a new API, please place it inside the `packages/APIs` directory.*
 
 b. **Enhance Existing Templates ✨**
    - See something that could be improved in our existing templates? Whether it’s optimizing code, adding comments, or fixing bugs, we’d love your input. Enhancements can include performance tweaks, better documentation, or any other improvements you can think of.
 
-   *If you want to enhance existing templates or APIs, please work inside the `packages` or `templates` directories.*
+   *If you want to enhance existing templates or APIs, please work inside the `packages/APIs` directories.*
 
 c. **Work on the Website 🌐**
    - Our website helps users understand and use Create My-API. You can contribute by fixing bugs, adding new features, or improving the overall design and user experience. If you’re a frontend whiz, we’d love your help here!
 
-   *If you want to contribute to the Create-My-API documentation website, please work inside the `apps` directory. The `client` subdirectory is for the Next.js frontend and the `server` subdirectory is for the Node.js Express backend.*
+   *If you want to contribute to the Create-My-API documentation website, please work inside the `apps` directory. The `web` subdirectory is for the Next.js frontend and the `server` subdirectory is for the Node.js Express backend.*
 
 4. **Make Your Changes 💻**
    - Implement your changes in your new branch. Ensure your code follows the project's coding standards and is well-documented.

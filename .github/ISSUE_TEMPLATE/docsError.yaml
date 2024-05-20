@@ -18,7 +18,6 @@ body:
       label: Select the open-source program you are contributing to
       multiple: true
       options:
-        - SSOC
         - Other
     validations:
       required: true
