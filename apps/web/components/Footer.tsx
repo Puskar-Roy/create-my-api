@@ -2,6 +2,7 @@ import logo from "../public/create-api.png";
 import Image from "next/image";
 import Link from "next/link";
 import { Montserrat } from "next/font/google";
+import LinkedInButton from "./ui/TailwindButton";
 
 const alata = Montserrat({
   weight: "800",
@@ -56,9 +57,10 @@ function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:underline">
+                {/* <Link href="#" className="hover:underline">
                   Contact
-                </Link>
+                </Link> */}
+                <LinkedInButton/>
               </li>
             </ul>
           </div>
