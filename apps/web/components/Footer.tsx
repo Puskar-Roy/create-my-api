@@ -11,9 +11,9 @@ const alata = Montserrat({
 });
 function Footer() {
   return (
-    <div className="w-full dark:bg-slate-900 bg-white  dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center pb-10">
-      {/* Radial gradient for the container to give a faded look */}
-      <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+    <div className="w-full bg-slate-900  dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center pb-10">
+      
+      <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black  [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       <footer className="bg-transparent rounded-lg  m-4 mx-auto w-[80%] z-10">
         <div className="w-full max-w-screen-xl mx-auhref p-4 md:py-8">
           <div className="sm:flex sm:items-center sm:justify-between">
@@ -42,25 +42,24 @@ function Footer() {
             </Link>
             <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0 ">
               <li>
-                <Link href="#" className="hover:underline me-4 md:me-6">
+                <Link href="/docs" className="hover:underline me-4 md:me-6">
                   Docs
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:underline me-4 md:me-6">
+                <Link href="/" className="hover:underline me-4 md:me-6">
                   Github
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:underline me-4 md:me-6">
+                <Link href="/" className="hover:underline me-4 md:me-6">
                   NPM
                 </Link>
               </li>
               <li>
-                {/* <Link href="#" className="hover:underline">
-                  Contact
-                </Link> */}
+                <Link href='/'>
                 <LinkedInButton/>
+                </Link>
               </li>
             </ul>
           </div>

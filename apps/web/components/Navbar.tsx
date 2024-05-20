@@ -5,7 +5,7 @@ import { Montserrat } from "next/font/google";
 import Image from "next/image";
 import logo from "../public/create-api.png";
 import GIthubButton from "./ui/GIthub-Button";
-import LinkedInButton from "./ui/TailwindButton";
+
 const alata = Montserrat({
   weight: "800",
   subsets: ["latin"],

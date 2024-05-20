@@ -26,9 +26,9 @@ export function FlipWordsDemo() {
       />
 
       <div className="h-auto flex justify-center flex-col gap-[4rem] items-center px-4 ">
-        <div className="text-4xl md:text-[3rem] text-center sm:text-left  mx-auto font-medium text-neutral-600 dark:text-neutral-400 z-10">
+        <div className="text-4xl md:text-[3rem] text-center sm:text-left  mx-auto font-medium text-neutral-400 z-10">
           Build
-          <FlipWords className="text-blue-900" words={words} />
+          <FlipWords className="" words={words} />
           API's with <br />
           <span className={`text-orange-300 font-extrabold ${alata.className}`}>
             Create

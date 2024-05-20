@@ -12,12 +12,12 @@ const CardsSection = () => {
   return (
     <div className="flex justify-center items-center flex-col sm:flex-row gap-2 sm:gap-5 w-[80%] sm:w-full">
       <div>
-        <h1 className="text-5xl text-center sm:text-left sm:text-6xl font-bold dark:text-white">
+        <h1 className="text-5xl text-center sm:text-left sm:text-6xl font-bold text-white">
           Set Up APIs <br /> <span className="text-orange-300">in</span>{" "}
           <span className="text-orange-500">a</span>{" "}
           <span className="text-red-500">Snap</span>
         </h1>
-        <p className="sm:max-w-lg text-base md:text-base mt-8 dark:text-neutral-200 text-center sm:text-left">
+        <p className="sm:max-w-lg text-base md:text-base mt-8 text-neutral-200 text-center sm:text-left">
           <span className={`${alata.className} font-extrabold text-orange-300`}>
             Create
           </span>{" "}
