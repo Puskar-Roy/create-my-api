@@ -1,12 +1,13 @@
 "use client";
-// import Image from "next/image";
+
 import { HeroScrollDemo } from "../components/HeroScroll";
 import { FlipWordsDemo } from "../components/Words";
-// import Hero from "../components/ui/Hero";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import { Engine } from "tsparticles-engine";
 import { useCallback } from "react";
+import CardsSection from "../components/CardsSection";
+
 
 export default function Home() {
   const init = useCallback(async (engine: Engine) => {
@@ -142,9 +143,10 @@ export default function Home() {
           }}
         />
 
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center z-10">
           <FlipWordsDemo />
           <HeroScrollDemo />
+          <CardsSection/>
         </div>
       </div>
     </main>
