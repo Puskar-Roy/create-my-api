@@ -2,7 +2,7 @@ import React from 'react'
 
 const TerminalCard = () => {
   return (
-    <div>
+    <div className="z-10">
       <aside className="bg-black text-white p-6 rounded-lg w-full max-w-lg font-mono">
         <div className="flex justify-between items-center">
           <div className="flex space-x-2 text-red-500">
@@ -13,11 +13,21 @@ const TerminalCard = () => {
           <p className="text-sm">bash</p>
         </div>
         <div className="mt-4">
-          <p className="text-green-400">$ npm install next</p>
+          <p className="text-green-400">$ npx create-my-api@latest</p>
           <p className="text-white">+ next@10.2.3</p>
           <p className="text-white">
-            added 1 package, and audited 2 packages in 3s
+            {" "}
+            <span className="text-cyan-200">?</span> What is your project named?
+            › backend
           </p>
+          {/* <p className="text-white">🔄 Select a Service:</p>
+          <p className="text-cyan-200">› Starter API</p>
+          <p className="text-white">› Existing API</p>
+          <p className="text-white">
+            {" "}
+            <span className="text-cyan-200">?</span> 🚀 Select a Backend
+            Technology:
+          </p> */}
           <p className="text-green-400">$</p>
         </div>
       </aside>
@@ -25,4 +35,4 @@ const TerminalCard = () => {
   );
 }
 
-export default TerminalCard
+export default TerminalCard;
