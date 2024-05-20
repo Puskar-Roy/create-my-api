@@ -1,24 +1,24 @@
 "use client";
-import Image from "next/image";
+// import Image from "next/image";
 import { HeroScrollDemo } from "../components/HeroScroll";
 import { FlipWordsDemo } from "../components/Words";
-// import Hero from "@/components/ui/Hero";
-// import Particles from "react-tsparticles";
-// import { loadFull } from "tsparticles";
-// import { Engine } from "tsparticles-engine";
-// import { useCallback } from "react";
+// import Hero from "../components/ui/Hero";
+import Particles from "react-tsparticles";
+import { loadFull } from "tsparticles";
+import { Engine } from "tsparticles-engine";
+import { useCallback } from "react";
 
 export default function Home() {
-  // const init = useCallback(async (engine: Engine) => {
-  //   await loadFull(engine);
-  // }, []);
+  const init = useCallback(async (engine: Engine) => {
+    await loadFull(engine);
+  }, []);
 
   return (
     <main className="">
       <div className="min-h-[120rem] w-full dark:bg-slate-900 bg-white  dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center">
         {/* Radial gradient for the container to give a faded look */}
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-        {/* <Particles
+        <Particles
         className="-z-3"
           init={init}
           options={{
@@ -140,7 +140,7 @@ export default function Home() {
             },
             detectRetina: true,
           }}
-        /> */}
+        />
 
         <div className="flex flex-col justify-center items-center">
           <FlipWordsDemo />
