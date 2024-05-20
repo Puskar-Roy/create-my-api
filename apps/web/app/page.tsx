@@ -7,6 +7,7 @@ import { loadFull } from "tsparticles";
 import { Engine } from "tsparticles-engine";
 import { useCallback } from "react";
 import CardsSection from "../components/CardsSection";
+import { InfinitetDemo } from "../components/ScrollSection";
 
 
 export default function Home() {
@@ -147,6 +148,7 @@ export default function Home() {
           <FlipWordsDemo />
           <HeroScrollDemo />
           <CardsSection/>
+          <InfinitetDemo/>
         </div>
       </div>
     </main>
