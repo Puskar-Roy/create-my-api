@@ -115,9 +115,9 @@ To get started, please check out the [CONTRIBUTING.md](./CONTRIBUTING.md) file f
 
 - __Create a new branch from your fork for any changes you make.__
 
-- __If you're adding a new API, please add it inside the `packages` directory.__
+- __If you're adding a new API, please add it inside the `packages/APIs` directory.__
 
-- __If you're enhancing existing `templates` or APIs, please work inside the `packages` or templates directories.__
+- __If you're enhancing existing `templates` or APIs, please work inside the `packages/APIs` or templates directories.__
 
 - __If you're working on the documentation website, please work inside the `apps` directory *(client for Next.js frontend and server for Node.js Express backend).*__
 
