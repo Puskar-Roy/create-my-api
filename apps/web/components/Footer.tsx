@@ -4,6 +4,8 @@ import Link from "next/link";
 import { Montserrat } from "next/font/google";
 import LinkedInButton from "./ui/TailwindButton";
 
+
+
 const alata = Montserrat({
   weight: "800",
   subsets: ["latin"],
@@ -12,7 +14,6 @@ const alata = Montserrat({
 function Footer() {
   return (
     <div className="w-full bg-slate-900  dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center pb-10">
-      
       <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black  [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       <footer className="bg-transparent rounded-lg  m-4 mx-auto w-[80%] z-10">
         <div className="w-full max-w-screen-xl mx-auhref p-4 md:py-8">
@@ -47,18 +48,24 @@ function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/" className="hover:underline me-4 md:me-6">
+                <Link
+                  href="https://github.com/Puskar-Roy/create-my-api"
+                  className="hover:underline me-4 md:me-6"
+                >
                   Github
                 </Link>
               </li>
               <li>
-                <Link href="/" className="hover:underline me-4 md:me-6">
+                <Link
+                  href="https://www.npmjs.com/package/create-my-api"
+                  className="hover:underline me-4 md:me-6"
+                >
                   NPM
                 </Link>
               </li>
               <li>
-                <Link href='/'>
-                <LinkedInButton/>
+                <Link href="https://www.linkedin.com/in/puskar-roy/">
+                  <LinkedInButton />
                 </Link>
               </li>
             </ul>

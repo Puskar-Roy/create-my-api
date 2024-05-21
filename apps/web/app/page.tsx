@@ -9,6 +9,7 @@ import { useCallback } from "react";
 import CardsSection from "../components/CardsSection";
 import { InfinitetDemo } from "../components/ScrollSection";
 import { Navbar } from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function Home() {
   const init = useCallback(async (engine: Engine) => {
@@ -143,7 +144,7 @@ export default function Home() {
             detectRetina: true,
           }}
         />
-        <div className="w-screen">
+        <div className="w-screen z-10">
           <Navbar />
           <div className="flex flex-col justify-center items-center z-10">
             <FlipWordsDemo />
@@ -151,6 +152,7 @@ export default function Home() {
             <CardsSection />
             <InfinitetDemo />
           </div>
+          <Footer/>
         </div>
       </div>
     </main>
