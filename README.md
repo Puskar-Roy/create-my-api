@@ -9,7 +9,7 @@
 
   <h1 align="center">Create My API ✨</h1> 
   <p align="center">
-    Welcome to the Create My API CLI your go-to tool for rapidly setting up production-ready API projects with ease! Whether you're a seasoned developer or just getting started, our CLI provides a streamlined 
+    Welcome to the Create My API CLI your go-to tool and API Library for rapidly setting up production-ready API projects with ease! Whether you're a seasoned developer or just getting started, our API Library and CLI provides a streamlined 
     experience for creating RESTful APIs using various backend technologies and database combinations.
     <br />
     <a href="https://github.com/Puskar-Roy/create-my-api"><strong>Explore the docs »</strong></a>
