@@ -2,7 +2,7 @@
 import { cn } from "../../utils/cn";
 import { motion, MotionValue } from "framer-motion";
 import React from "react";
-
+import Link from "next/link";
 const transition = {
   duration: 0,
   ease: "linear",
@@ -20,7 +20,7 @@ export const GoogleGeminiEffect = ({
   className?: string;
 }) => {
   return (
-    <div className={cn("sticky top-80", className)}>
+    <div className={cn("sticky top-80 z-10", className)}>
       <p className="text-4xl font-extrabold md:text-7xl sm:font-normal pb-4 text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-300">
         {title || `Build with Create My API`}
       </p>
@@ -30,8 +30,8 @@ export const GoogleGeminiEffect = ({
         works!`}
       </p>
       <div className="w-full h-[890px] -top-60 md:-top-40  flex items-center justify-center bg-red-transparent absolute ">
-        <button className="font-bold bg-white rounded-full md:px-4 md:py-2 px-3 py-[0.80rem] md:mt-24 mt-8 z-30 md:text-base text-black text-xs  w-fit mx-auto ">
-          Explore Docs
+        <button className="font-bold bg-white rounded-full md:px-4 md:py-2 px-3 py-[0.80rem] md:mt-24 mt-8 z-30 md:text-base text-black text-xs  w-fit mx-auto cursor-pointer hover:bg-slate-200">
+          <Link href="/docs">Explore Docs</Link>
         </button>
       </div>
       <svg

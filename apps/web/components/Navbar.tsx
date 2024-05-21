@@ -83,14 +83,12 @@ export const Navbar = () => {
                         href="#"
                         className="group relative before:absolute before:inset-x-0 before:bottom-0 before:h-2 before:origin-right before:scale-x-0 "
                       >
-                        <span className="relative hover:text-orange-300">
-                          
-                        </span>
+                        <span className="relative hover:text-orange-300"></span>
                       </Link>
                     </li>
                     <li>
                       <Link
-                        href="#"
+                        href="https://github.com/Puskar-Roy/create-my-api"
                         className="group relative before:absolute before:inset-x-0 before:bottom-0 before:h-2 before:origin-right before:scale-x-0 flex justify-center items-center"
                       >
                         <span className="relative hover:text-orange-300 ">
