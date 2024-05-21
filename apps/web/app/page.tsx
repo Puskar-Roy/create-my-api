@@ -7,7 +7,9 @@ import { loadFull } from "tsparticles";
 import { Engine } from "tsparticles-engine";
 import { useCallback } from "react";
 import CardsSection from "../components/CardsSection";
-
+import { InfinitetDemo } from "../components/ScrollSection";
+import { Navbar } from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function Home() {
   const init = useCallback(async (engine: Engine) => {
@@ -16,11 +18,11 @@ export default function Home() {
 
   return (
     <main className="">
-      <div className="min-h-[120rem] w-full dark:bg-slate-900 bg-white  dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center">
+      <div className="min-h-[120rem] w-full bg-slate-900   dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center">
         {/* Radial gradient for the container to give a faded look */}
-        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+        <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
         <Particles
-        className="-z-3"
+          className="-z-3"
           init={init}
           options={{
             background: {
@@ -142,11 +144,15 @@ export default function Home() {
             detectRetina: true,
           }}
         />
-
-        <div className="flex flex-col justify-center items-center z-10">
-          <FlipWordsDemo />
-          <HeroScrollDemo />
-          <CardsSection/>
+        <div className="w-screen z-10">
+          <Navbar />
+          <div className="flex flex-col justify-center items-center z-10">
+            <FlipWordsDemo />
+            <HeroScrollDemo />
+            <CardsSection />
+            <InfinitetDemo />
+          </div>
+          <Footer/>
         </div>
       </div>
     </main>
