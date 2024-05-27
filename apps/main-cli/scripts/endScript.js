@@ -5,4 +5,7 @@ const greetings = (repoName, lang) => {
   console.log(green(`  ⌨️  cd ${repoName} && npm install && npm run dev\n`));
 };
 
+
+
+
 module.exports = { greetings };
