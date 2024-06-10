@@ -53,7 +53,7 @@ const existingAPIPromt = {
   type: "select",
   name: "existingAPI",
   message: "📝 Select an API? ",
-  choices: ["Attendance Portal", "E-learning Platform"],
+  choices: ["Attendance Portal", "E-learning Platform", "Online_Book_Sales"],
 };
 
 

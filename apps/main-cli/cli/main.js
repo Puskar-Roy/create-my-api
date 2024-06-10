@@ -100,6 +100,17 @@ const runCLI = async (copyDir) => {
           }
         },
       );
+    } else if (existingAPIResponse.existingAPI === "Online_Book_Sales") {
+      copyDir(
+        path.resolve(__dirname, "../packages/OnlineBookSales_API"),
+        path.resolve(process.cwd(), projectResponse.projectname),
+        (err) => {
+          if (err) {
+            console.log("Failed to copy directory:", err);
+            return;
+          }
+        },
+      );
     }
 
     greetings(existingAPIResponse.existingAPI, "Typescript");
