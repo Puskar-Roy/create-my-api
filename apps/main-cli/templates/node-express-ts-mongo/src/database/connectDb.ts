@@ -6,6 +6,6 @@ mongoose
   .then(() => {
     console.log(`[📥] MongoDB Connected!`);
   })
-  .catch((e) => {
-    console.log(`Connection Error - ${e}`);
+  .catch((error) => {
+    console.log(`Connection Error - ${error}`);
   });
