@@ -24,7 +24,7 @@ const page = () => {
               <span className={`text-orange-500 font-extrabold `}>My</span>{" "}
               <span className={`text-red-500 font-extrabold `}>API</span>
             </div>
-            Docs Page coming soon 👻{" "}
+            Docs Page coming soon 👻
           </div>
           <div className="flex justify-center items-center">
             <Link href="https://github.com/Puskar-Roy/create-my-api">
