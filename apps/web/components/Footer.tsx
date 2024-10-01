@@ -15,7 +15,7 @@ function Footer() {
   return (
     <div className="w-full bg-slate-900  dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center pb-10">
       <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black  [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-      <footer className="bg-transparent rounded-lg  m-4 mx-auto w-[80%] z-10">
+      <footer className="bg-transparent rounded-lg  m-4 mx-auto w-[80%] z-10 flex justify-center items-center">
         <div className="w-full max-w-screen-xl mx-auhref p-4 md:py-8">
           <div className="sm:flex sm:items-center sm:justify-between">
             <Link
