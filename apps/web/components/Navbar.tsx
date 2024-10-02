@@ -73,7 +73,7 @@ export const Navbar = () => {
 
               <div
                 className={`peer-checked:translate-x-0 fixed inset-0 w-[calc(100%-4.5rem)] translate-x-[-100%]  shadow-xl transition duration-300  lg:w-auto lg:static lg:shadow-none lg:translate-x-0 ${
-                  isOpen ? "translate-x-0" : ""
+                  isOpen ? "translate-x-0 -translate-y-20" : ""
                 }`}
               >
                 <div className="flex flex-col h-full justify-between lg:items-center lg:flex-row">
