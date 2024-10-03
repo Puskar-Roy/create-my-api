@@ -71,3 +71,17 @@ model VerificationToken {
   createdAt    DateTime @default(now())
   expiresAt    DateTime @default(dbgenerated("CURRENT_TIMESTAMP + interval '10 minutes'"))
 }
+
+model Notification {
+  id          Int       @id @default(autoincrement())
+  user        User      @relation(fields: [userId], references: [id])
+  userId      String    // Change this from Int to String
+  course      Course    @relation(fields: [courseId], references: [id])
+  courseId    String    // Change this from Int to String
+  review      Review?   @relation(fields: [reviewId], references: [id])
+  reviewId    String?   // Change this from Int? to String?
+  type        String    // e.g., "new_review" or "review_reply"
+  message     String    // Custom message for the notification
+  read        Boolean   @default(false) // Whether the notification has been read
+  createdAt   DateTime  @default(now())
+}
