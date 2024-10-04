@@ -1,21 +1,7 @@
-const express = require("express");
-const {
-  registerCustomer,
-  loginCustomer,
-  getCustomerDetails,
-  updatePassword,
-  updateProfile,
-  logoutCustomer,
-  addFeedback
-  
-
-} = require("../controllers/customerController.js");
-const {
-  addTocart,
-  getCartItems,
-  deleteCartItem
-}=require('../controllers/cartController');
-const { isAuthenticatedUser, authorizeRoles } = require("../middlewares/auth.js");
+import express from "express";
+import { registerCustomer, loginCustomer, getCustomerDetails, updatePassword, updateProfile, logoutCustomer, addFeedback } from "../controllers/customerController.js";
+import { addTocart, getCartItems, deleteCartItem } from '../controllers/cartController.js';
+import { isAuthenticatedUser, authorizeRoles } from "../middlewares/auth.js";
 
 
 const router = express.Router();
@@ -56,4 +42,5 @@ router.route("/cart").get(isAuthenticatedUser,getCartItems);
 
 //giving feedback
 router.route("/add-feedback").post(isAuthenticatedUser,addFeedback);
-module.exports = router;
+
+export default router

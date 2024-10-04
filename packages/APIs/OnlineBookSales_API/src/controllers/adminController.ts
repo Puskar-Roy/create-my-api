@@ -1,9 +1,10 @@
-const catchAsyncErrors = require("../middlewares/catchAsyncErrors");
-const Feedback = require("../models/feebackSchema");
+import catchAsyncErrors from "../middlewares/catchAsyncErrors.js";
+import Feedback from "../models/feebackSchema.js";
+import ErrorHandler from "../utils/errorHandler.js";
 
 
 //get all feedbacks
-exports.retriveFeedbacks=catchAsyncErrors(async(req,res,next)=>{
+export const retriveFeedbacks=catchAsyncErrors(async(req,res,next)=>{
     const feedbacks=await Feedback.find();
 
     res.status(200).json({
@@ -14,7 +15,7 @@ exports.retriveFeedbacks=catchAsyncErrors(async(req,res,next)=>{
 });
 
 //get feedback by id
-exports.retriveFeedbacksById=catchAsyncErrors(async(req,res,next)=>{
+export const retriveFeedbacksById=catchAsyncErrors(async(req,res,next)=>{
     const feedback=await Feedback.findById(req.params.id);
 
     if(!feedback){
@@ -29,7 +30,7 @@ exports.retriveFeedbacksById=catchAsyncErrors(async(req,res,next)=>{
 
 
 //update feedback
-exports.updateFeeback=catchAsyncErrors(async(req,res,next)=>{
+export const updateFeeback=catchAsyncErrors(async(req,res,next)=>{
     let feedback
     feedback=await Feedback.findById(req.params.id);
     if(!feedback){
