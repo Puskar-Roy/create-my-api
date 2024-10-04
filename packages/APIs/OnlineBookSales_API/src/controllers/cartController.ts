@@ -1,10 +1,10 @@
 
-const Cart = require('../models/cartSchema');
-const catchAsyncErrors = require('../middlewares/catchAsyncErrors');
+import Cart from '../models/cartSchema.js';
+import catchAsyncErrors from '../middlewares/catchAsyncErrors.js';
 
 
 // Add to cart => /customer/cart/add-product
-exports.addTocart = catchAsyncErrors(async (req, res, next) => {
+export const addTocart = catchAsyncErrors(async (req, res, next) => {
     let  cartItems  = req.body.cartItems;
     const userId=req.body.user._id ;
     
@@ -31,7 +31,7 @@ exports.addTocart = catchAsyncErrors(async (req, res, next) => {
 
 
 // Get cart items => /customer/cart
-exports.getCartItems = catchAsyncErrors(async (req, res, next) => {
+export const getCartItems = catchAsyncErrors(async (req, res, next) => {
     const cart = await Cart.findOne({ user: req.body.user._id });
     let cartItems =[];
     if(cart){
@@ -44,7 +44,7 @@ exports.getCartItems = catchAsyncErrors(async (req, res, next) => {
 
 
 // Delete cart item => /customer/cart/remove-product
-exports.deleteCartItem = catchAsyncErrors(async (req, res, next) => {
+export const deleteCartItem = catchAsyncErrors(async (req, res, next) => {
     const cart = await Cart.findOne({ user: req.body.user._id });
     const productId=req.body.productId;
     const cartItems = cart.cartItems;

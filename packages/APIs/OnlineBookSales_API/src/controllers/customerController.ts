@@ -1,15 +1,17 @@
-const catchAsyncErrors = require("../middlewares/catchAsyncErrors.js");
-const Customer = require("../models/customerSchema.js");
-const Feedback = require("../models/feebackSchema.js");
-const sendToken = require("../utils/jwtToken");
-const ErrorHandler = require("../utils/errorHandler.js");
-const jwt = require("jsonwebtoken");
-require("dotenv").config();
-// CUSTOMER REGISTRATION ROUTE
-const validator = require('validator');
-const disposableEmailDomains = require('disposable-email-domains');
+import catchAsyncErrors from "../middlewares/catchAsyncErrors.js";
+import Customer from "../models/customerSchema.js";
+import Feedback from "../models/feebackSchema.js";
+import {sendToken} from "../utils/jwtToken.js";
+import ErrorHandler from "../utils/errorHandler.js";
+import jwt from "jsonwebtoken";
+import nodemailer from 'nodemailer';
+import { config } from 'dotenv';
 
-exports.registerCustomer = catchAsyncErrors(async (req, res, next) => {
+config();
+// CUSTOMER REGISTRATION ROUTE
+import validator from 'validator';
+
+export const registerCustomer = catchAsyncErrors(async (req, res, next) => {
   const { name, email, password } = req.body;
 
   try {
@@ -18,11 +20,6 @@ exports.registerCustomer = catchAsyncErrors(async (req, res, next) => {
       return res.status(400).json({ error: 'Invalid email address' });
     }
 
-    // Check if email domain is disposable
-    const domain = email.split('@')[1];
-    if (disposableEmailDomains.includes(domain)) {
-      return res.status(400).json({ error: 'Disposable email addresses are not allowed' });
-    }
 
     const customer = await Customer.create({
       name,
@@ -60,19 +57,19 @@ exports.registerCustomer = catchAsyncErrors(async (req, res, next) => {
 
 
 // CUSTOMER LOGIN ROUTE
-exports.loginCustomer = catchAsyncErrors(async (req, res, next) => {
+export const loginCustomer = catchAsyncErrors(async (req, res, next) => {
     const { email, password } = req.body;
    
     if (!email || !password) {
       return next(new ErrorHandler("Please Enter Email & Password", 400));
     }
   
-    const customer = await Customer.findOne({ email }).select("+password");
+    const customer= await Customer.findOne({ email }).select("+password");
   
     if (!customer) {
       return next(new ErrorHandler("Invalid email or password", 401));
     }
-  
+    // @ts-ignore
     const isPasswordMatched = await customer.comparePassword(password);
   
     if (!isPasswordMatched) {
@@ -83,7 +80,7 @@ exports.loginCustomer = catchAsyncErrors(async (req, res, next) => {
   });
   
     //CUSTOMER LOGOUT ROUTE
-    exports.logoutCustomer = catchAsyncErrors(async (req,res,next) => {
+    export const logoutCustomer = catchAsyncErrors(async (req,res,next) => {
       const customer = await Customer.findById(req.user.id);
        
       if(!customer){
@@ -107,7 +104,7 @@ exports.loginCustomer = catchAsyncErrors(async (req, res, next) => {
 
 
 // GET CUSTOMER DETAIL
-exports.getCustomerDetails = catchAsyncErrors(async (req, res, next) => {
+export const getCustomerDetails = catchAsyncErrors(async (req, res, next) => {
   const customer = await Customer.findById(req.user.id);
 
   res.status(200).json({
@@ -117,13 +114,12 @@ exports.getCustomerDetails = catchAsyncErrors(async (req, res, next) => {
 });
 
 // UPDATE CUSTOMER PASSWORD
-exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
+export const updatePassword = catchAsyncErrors(async (req, res, next) => {
   const customer = await Customer.findById(req.user.id).select("+password");
-
+  // @ts-ignore
   const isPasswordMatched = await customer.comparePassword(
     req.body.oldPassword
   );
-
   if (!isPasswordMatched) {
     return next(new ErrorHandler("Old password is incorrect", 400));
   }
@@ -140,7 +136,7 @@ exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
 });
 
 // UPDATE CUSTOMER PROFILE
-exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
+export const updateProfile = catchAsyncErrors(async (req, res, next) => {
   const newCustomerData = {
     name: req.body.name,
     email: req.body.email,
@@ -162,26 +158,25 @@ exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
 });
 
 
-exports.addFeedback = catchAsyncErrors(async (req, res, next) => {
+export const addFeedback = catchAsyncErrors(async (req, res, next) => {
   const { feedback,topic } = req.body;
-  const newFeedback = await Feedback.create({
-    feedback,
-    topic,
-    user: req.body.user._id,
-  });
   try{
    // sendMailToAdmin(newFeedback);
+   const newFeedback = await Feedback.create({
+      feedback,
+      topic,
+      user: req.body.user._id,
+    });
     res.status(200).json({
       success: true,
       newFeedback,
     });
   } catch (error) {
-    newFeedback.delete();
     console.error("Error occurred during feedback creation:", error);
     next(error);
   }
 });
-sendMailToAdmin = async (newFeedback) => {
+const sendMailToAdmin = async (newFeedback) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {

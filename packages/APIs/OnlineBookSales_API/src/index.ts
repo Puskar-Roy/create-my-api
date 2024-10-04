@@ -1,22 +1,25 @@
-const express = require(`express`);
+import express from "express";
+import dotenv from "dotenv";
+import mongoose from 'mongoose';
+import cookieParser from "cookie-parser";
+import bodyParser from "body-parser";
+import { rateLimit } from "express-rate-limit";
+import mongoSanitize from "express-mongo-sanitize";
+import hpp from "hpp";
+import helmet from 'helmet';
+import cors from "cors";
+import customer from "./routes/customerRoutes.js";
+import product from "./routes/productRoutes.js";
+import order from "./routes/orderRoutes.js";
+import admin from "./routes/adminRoutes.js";
+import { authorizeRoles } from './middlewares/auth.js';
+import errorMiddleware from "./middlewares/error.js";
+
+
+dotenv.config()
+
 const app = express();
-const dotenv = require(`dotenv`);
-const mongoose = require('mongoose');
-const cookieParser = require("cookie-parser");
-const bodyParser = require("body-parser");
-const { rateLimit } = require("express-rate-limit");
-const mongoSanitize = require("express-mongo-sanitize");
-const hpp = require("hpp");
-const helmet = require('helmet');
-const errorMiddleware = require("./middlewares/error.js");
 
-
-
-
-
-
-// dotenv.config({path : `.env`})
-require('dotenv').config();
 const PORT = process.env.PORT || 8080;
 console.log(process.env.MONGO_URL);
 
@@ -24,7 +27,7 @@ console.log(process.env.MONGO_URL);
 const MONGO_URL = process.env.MONGO_URL ;
 
 // cors
-const cors=require("cors");
+
 app.use(cors())
 
 
@@ -59,11 +62,8 @@ if (!MONGO_URL) {
     process.exit(1); // Terminate the application
 }
 
-// MongoDB connection
-mongoose.connect(MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+// MongoDB connection 
+mongoose.connect(MONGO_URL)
 mongoose.connection.on('connected', () => {
     console.log("Connected to MongoDB")
 })
@@ -80,18 +80,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(hpp()); // Make sure the body is parsed beforehand.
 
 
-// Route Imports
-const customer = require("./routes/customerRoutes.js");
-const product = require("./routes/productRoutes.js");
-const order = require("./routes/orderRoutes.js");
-const admin = require("./routes/adminRoutes.js");
-const { authorizeRoles } = require('./middlewares/auth.js');
 
 app.use("/customer", customer);
 app.use("/product", product);
 app.use("/order", order);
-
-app.use('admin',authorizeRoles,admin);
+//Add authorisation here
+app.use('/admin',admin);
 // Middleware for Errors
 app.use(errorMiddleware);
 app.get('/', (req, res) => {
@@ -101,3 +95,5 @@ app.get('/', (req, res) => {
 app.listen(PORT,()=>{
     console.log(`Server is running on port ${PORT}`);
 })
+
+export default app;
