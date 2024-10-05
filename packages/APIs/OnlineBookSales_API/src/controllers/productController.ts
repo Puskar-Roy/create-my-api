@@ -1,9 +1,9 @@
-const Product = require("../models/productSchema.js");
-const catchAsyncErrors = require("../middlewares/catchAsyncErrors.js");
-const ErrorHandler=require("../utils/errorHandler.js")
+import Product from "../models/productSchema.js";
+import catchAsyncErrors from "../middlewares/catchAsyncErrors.js";
+import ErrorHandler from "../utils/errorHandler.js";
 
 // CREATE PRODUCT
-exports.createProduct = catchAsyncErrors(async (req, res, next) => {
+export const createProduct = catchAsyncErrors(async (req, res, next) => {
   
     const product = await Product.create(req.body);
 
@@ -24,7 +24,7 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
   
 
   // GET ALL PRODUCTS (ADMIN)
-exports.getAdminProducts = catchAsyncErrors(async (req, res, next) => {
+export const getAdminProducts = catchAsyncErrors(async (req, res, next) => {
   const products = await Product.find();
 
   res.status(200).json({
@@ -34,7 +34,7 @@ exports.getAdminProducts = catchAsyncErrors(async (req, res, next) => {
 });
 
 // GET PRODUCT DETAILS
-exports.getProductDetails = catchAsyncErrors(async (req, res, next) => {
+export const getProductDetails = catchAsyncErrors(async (req, res, next) => {
   const product = await Product.findById(req.params.id);
 
   if (!product) {
@@ -51,7 +51,7 @@ exports.getProductDetails = catchAsyncErrors(async (req, res, next) => {
 
 // UPDATE PRODUCT -- ADMIN
 
-exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
+export const updateProduct = catchAsyncErrors(async (req, res, next) => {
   let product = await Product.findById(req.params.id);
 
   if (!product) {
@@ -73,11 +73,11 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
 
 // DELETE PRODUCT
 
-exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
+export const deleteProduct = catchAsyncErrors(async (req, res, next) => {
   const product = await Product.findById(req.params.id);
 
   if (!product) {
-    return next(new ErrorHander("Product not found", 404));
+    return next(new ErrorHandler("Product not found", 404));
   }
 
   await product.deleteOne();
@@ -92,7 +92,7 @@ exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
 
 // Search Product 
 
-exports.searchProduct = catchAsyncErrors(async (req, res, next) => {
+export const searchProduct = catchAsyncErrors(async (req, res, next) => {
   const products = await Product.findById(req.params.id);
 
   if(!products){
@@ -106,7 +106,7 @@ exports.searchProduct = catchAsyncErrors(async (req, res, next) => {
 
 // Filter Product
 
-exports.filterProduct = catchAsyncErrors(async (req, res, next) => {
+export const filterProduct = catchAsyncErrors(async (req, res, next) => {
   const { category, numOfReviews } = req.body;
   if(!category || !numOfReviews){
     return next(new ErrorHandler("Please select either category or numOfReviews", 404)); 
@@ -114,9 +114,9 @@ exports.filterProduct = catchAsyncErrors(async (req, res, next) => {
 
     let filterCriteria = {}
     if(category){
-      filterCriteria.category = category
+      filterCriteria[category] = category
     }else if(numOfReviews){
-      filterCriteria.numOfReviews=numOfReviews
+      filterCriteria[numOfReviews]=numOfReviews
     }
     const products = await Product.find(filterCriteria);
     if(!products){
@@ -128,7 +128,7 @@ exports.filterProduct = catchAsyncErrors(async (req, res, next) => {
     });
 });
 
-exports.getShareableLink = async (req, res) => {
+export const getShareableLink = async (req, res) => {
   try {
     const { Id } = req.params;
     const product = await Product.findById(Id);

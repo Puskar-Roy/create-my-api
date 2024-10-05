@@ -23,6 +23,11 @@
   </p>
 </div>
 
+## 🚨 Note 
+
+ - Please Check The [CONTRIBUTING.md](./CONTRIBUTING.md) and Always Push In ```dev``` Branch :)
+ - We are Gonna plan to make a **Free API Store** wiht all of the APIs we have, so Feel Free to Contribute in the Next JS Web Part :)
+ - Also In Web Part We want to make a Documentetion Part, you can contribute with that :)
 
 ## ⚙️ Installation
 
