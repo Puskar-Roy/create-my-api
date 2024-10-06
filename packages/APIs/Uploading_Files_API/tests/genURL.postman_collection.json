@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "1b2fa9db-dd1d-4cbf-8b92-7353aa8edae1",
+		"name": "genURL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23894226"
+	},
+	"item": [
+		{
+			"name": "Add a File",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "genURL",
+							"type": "file",
+							"src": "/C:/Users/SANJAY M/OneDrive/Pictures/Screenshots/Screenshot 2024-09-07 111546.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/uploads/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"uploads",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a File",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/uploads/d6c11127c2d731070f0f11dec73a4039.png",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"uploads",
+						"d6c11127c2d731070f0f11dec73a4039.png"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
