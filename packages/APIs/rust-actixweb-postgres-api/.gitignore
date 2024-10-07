@@ -1,0 +1,22 @@
+# Compiled files
+/target/
+
+# Dependency directories
+/vendor/
+/.cargo/
+
+# Generated documentation
+/doc/
+
+# Environment variables
+.env
+
+# Editor and IDE files
+.vscode/
+.idea/
+
+# Build artifacts
+*.rs.bk
+
+# Logs
+*.log
