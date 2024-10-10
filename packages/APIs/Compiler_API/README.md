@@ -82,5 +82,3 @@ docker rm compiler-api-container
 ## Happy Coding! :>
 
 ---
-
-This version reflects your request to build the Docker image, tag it, and then run it using the `docker run` command with appropriate port mapping and container name.
