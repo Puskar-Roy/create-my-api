@@ -19,3 +19,17 @@
   background: rgba(150, 150, 150, 0.9); 
   border-radius: 12px;
 }
+
+@media (max-width: 640px) {
+  body {
+    font-size: 0.875rem;
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 640px) {
+  body {
+    font-size: 1rem;
+    padding: 2rem;
+  }
+}
