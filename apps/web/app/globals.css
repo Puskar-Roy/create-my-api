@@ -21,7 +21,7 @@
 }
 
 @media (max-width: 640px) {
-  body {
+  body{
     font-size: 0.875rem;
     padding: 1rem;
   }
