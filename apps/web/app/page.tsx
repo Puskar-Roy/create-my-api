@@ -10,6 +10,7 @@ import CardsSection from "../components/CardsSection";
 import { InfinitetDemo } from "../components/ScrollSection";
 import { Navbar } from "../components/Navbar";
 import Footer from "../components/Footer";
+import BackToTopButton from "../components/BackToTop";
 
 export default function Home() {
   const init = useCallback(async (engine: Engine) => {
@@ -152,6 +153,7 @@ export default function Home() {
             <CardsSection />
             <InfinitetDemo />
           </div>
+          <BackToTopButton />
           <Footer/>
         </div>
       </div>
