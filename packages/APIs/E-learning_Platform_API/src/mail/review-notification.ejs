@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Review Notification</title>
+  </head>
+  <body>
+    <h2>New Review on Your Course: <%= courseTitle %></h2>
+    <p>Dear Course Owner,</p>
+    <p>
+      A new review has been posted on your course "<%= courseTitle %>".
+    </p>
+    <p><strong>Rating:</strong> <%= reviewRating %></p>
+    <p><strong>Review:</strong> <%= reviewContent %></p>
+    <p><strong>Review from:</strong> <%= reviewingUser %></p>
+    <p>Best regards,<br />Your E-learning Platform Team</p>
+  </body>
+</html>
