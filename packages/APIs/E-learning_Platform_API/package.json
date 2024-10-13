@@ -15,7 +15,7 @@
     "schema": "./src/prisma/schema.prisma"
   },
   "dependencies": {
-    "@prisma/client": "^5.11.0",
+    "@prisma/client": "^5.20.0",
     "bcryptjs": "^2.4.3",
     "colorette": "^2.0.20",
     "cookie-parser": "^1.4.6",

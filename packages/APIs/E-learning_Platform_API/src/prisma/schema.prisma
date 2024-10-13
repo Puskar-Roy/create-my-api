@@ -13,36 +13,41 @@ enum Role {
 }
 
 model User {
-  id                String              @id @default(uuid())
-  name              String
-  email             String           @unique
-  password          String
-  role              Role             @default(USER)
-  profile           Profile?
-  enrollments       UserEnrollment[]
-  reviews           Review[]
+  id                 String              @id @default(uuid())
+  name               String
+  email              String              @unique
+  password           String
+  role               Role                @default(USER)
+  profile            Profile?
+  enrollments        UserEnrollment[]
+  reviews            Review[]
   verificationTokens VerificationToken[]
-  isVerified        Boolean          @default(false)
+  isVerified         Boolean             @default(false)
+  createdCourses     Course[]            @relation("CourseCreator")
+  notifications      Notification[]      @relation("UserNotifications")
 }
 
 model Profile {
-  id          String    @id @default(uuid())
-  user        User   @relation(fields: [userId], references: [id])
-  userId      String    @unique
-  profilePic  String?
+  id         String  @id @default(uuid())
+  user       User    @relation(fields: [userId], references: [id])
+  userId     String  @unique
+  profilePic String?
 }
 
 model Course {
-  id          String           @id @default(uuid())
-  title       String
-  category    String
-  level       String
-  enrollments UserEnrollment[]
-  reviews     Review[]
+  id           String           @id @default(uuid())
+  title        String
+  category     String
+  level        String
+  enrollments  UserEnrollment[]
+  reviews      Review[]
+  creator      User             @relation("CourseCreator", fields: [creatorId], references: [id])
+  creatorId    String
+  Notification Notification[]
 }
 
 model UserEnrollment {
-  id        String      @id @default(uuid())
+  id        String   @id @default(uuid())
   user      User     @relation(fields: [userId], references: [id])
   userId    String
   course    Course   @relation(fields: [courseId], references: [id])
@@ -51,37 +56,38 @@ model UserEnrollment {
 }
 
 model Review {
-  id          String     @id @default(uuid())
-  rating      Int
-  content     String
-  user        User     @relation(fields: [userId], references: [id])
-  userId      String
-  course      Course   @relation(fields: [courseId], references: [id])
-  courseId    String
-  createdAt   DateTime @default(now())
+  id            String         @id @default(uuid())
+  rating        Int
+  content       String
+  user          User           @relation(fields: [userId], references: [id])
+  userId        String
+  course        Course         @relation(fields: [courseId], references: [id])
+  courseId      String
+  createdAt     DateTime       @default(now())
+  notifications Notification[] @relation("ReviewNotifications")
 
   @@unique([userId, courseId])
 }
 
 model VerificationToken {
-  id           String      @id @default(uuid())
-  token        String   @unique
-  userId       String
-  user         User     @relation(fields: [userId], references: [id])
-  createdAt    DateTime @default(now())
-  expiresAt    DateTime @default(dbgenerated("CURRENT_TIMESTAMP + interval '10 minutes'"))
+  id        String   @id @default(uuid())
+  token     String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+  expiresAt DateTime @default(dbgenerated("CURRENT_TIMESTAMP + interval '10 minutes'"))
 }
 
 model Notification {
-  id          Int       @id @default(autoincrement())
-  user        User      @relation(fields: [userId], references: [id])
-  userId      String    // Change this from Int to String
-  course      Course    @relation(fields: [courseId], references: [id])
-  courseId    String    // Change this from Int to String
-  review      Review?   @relation(fields: [reviewId], references: [id])
-  reviewId    String?   // Change this from Int? to String?
-  type        String    // e.g., "new_review" or "review_reply"
-  message     String    // Custom message for the notification
-  read        Boolean   @default(false) // Whether the notification has been read
-  createdAt   DateTime  @default(now())
+  id        Int      @id @default(autoincrement())
+  user      User     @relation("UserNotifications", fields: [userId], references: [id])
+  userId    String
+  course    Course   @relation(fields: [courseId], references: [id])
+  courseId  String
+  review    Review?  @relation("ReviewNotifications", fields: [reviewId], references: [id])
+  reviewId  String?
+  type      String // e.g., "new_review" or "review_reply"
+  message   String // Custom message for the notification
+  read      Boolean  @default(false) // Whether the notification has been read
+  createdAt DateTime @default(now())
 }
