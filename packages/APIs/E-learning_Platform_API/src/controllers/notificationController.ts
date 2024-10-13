@@ -11,19 +11,21 @@ export const notifyCourseOwner = async ({
   creatorEmail,
   reviewContent,
   reviewRating,
+  revewingUser,
 }: {
   courseTitle: string;
   creatorEmail: string;
   reviewContent: string;
   reviewRating: number;
+  revewingUser: string;
 }) => {
   try {
-    // Call the reusable sendMail function with dynamic data
+    // Call sendMail function with dynamic data
     await sendMail({
       to: creatorEmail,
       subject: `New review on your course: ${courseTitle}`,
       templateName: 'review-notification', // Name of the EJS file without extension
-      templateData: { courseTitle, reviewContent, reviewRating }, // Data passed to the template
+      templateData: { courseTitle, reviewContent, reviewRating, revewingUser }, // Data passed to the template
     });
   } catch (error) {
     console.error('Error sending notification:', error);

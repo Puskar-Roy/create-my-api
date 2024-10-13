@@ -33,6 +33,9 @@ export const addReview = asyncHandler(async (req: Request, res: Response) => {
     const creator = await prisma.user.findUnique({
       where: { id: course.creatorId },
     });
+    const revewingUser = await prisma.user.findUnique({
+      where: { id: userId },
+    });
 
     if (!creator) {
       return res.status(404).json({ message: 'Creator not found' });
@@ -46,6 +49,7 @@ export const addReview = asyncHandler(async (req: Request, res: Response) => {
       creatorEmail: creator.email,
       reviewContent: content,
       reviewRating: rating,
+      revewingUser: revewingUser.name,
     });
 
     res.status(201).json(review);
