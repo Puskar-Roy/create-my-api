@@ -4,16 +4,7 @@ import asyncHandler from '../util/catchAsync';
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 // Nodemailer Transport Configuration
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: parseInt(process.env.SMTP_PORT, 10),
-  service: process.env.SMTP_SERVICE,
-  auth: {
-    user: process.env.SMTP_EMAIL,
-    pass: process.env.SMTP_PASSWORD,
-  },
-});
-
+import { sendMail } from '../util/sendMail';
 // Send Notification to Course Owner for New Review
 export const notifyCourseOwner = async ({
   courseTitle,
@@ -27,20 +18,13 @@ export const notifyCourseOwner = async ({
   reviewRating: number;
 }) => {
   try {
-    // Example: Send email notification to the course creator
-    console.log(
-      `Sending notification to ${creatorEmail} about new review on ${courseTitle}`
-    );
-
-    // Use Nodemailer (or any email service) to send the email
-    await transporter.sendMail({
-      from: process.env.SMTP_EMAIL,
+    // Call the reusable sendMail function with dynamic data
+    await sendMail({
       to: creatorEmail,
       subject: `New review on your course: ${courseTitle}`,
-      text: `A new review has been posted on your course "${courseTitle}".\n\nRating: ${reviewRating}\nReview: ${reviewContent}`,
+      templateName: 'review-notification', // Name of the EJS file without extension
+      templateData: { courseTitle, reviewContent, reviewRating }, // Data passed to the template
     });
-
-    console.log('Notification sent successfully');
   } catch (error) {
     console.error('Error sending notification:', error);
   }
