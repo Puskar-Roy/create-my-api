@@ -6,7 +6,6 @@
     <img src="https://t4.ftcdn.net/jpg/01/28/93/91/360_F_128939133_0WXTVdZ1bv1NXusQsdYYJLIwTVoXHqQ7.jpg" alt="Logo" width="150" height="120">
   </div>
 
-
   <h3 align="center">E-learning Portal - Backend</h3>
 
   <p align="center">
@@ -17,18 +16,17 @@
   </p>
 </div>
 
-
-
-##### Note: *For production, include your frontend URL in the `whitelist` array within `src/index.ts`. Update the `.env` file by setting `DEV_MODE=PROD` to ensure that CORS is restricted. In `DEV_MODE=DEV`, any URL can send requests to the backend. Set `EMAIL_SERVICE=RESEND` to use the default email service as Resend. Note that in the free tier of Resend, you can only send emails to your own email account. The current setup utilizes the NodeMailer SMTP service. For testing the API, use the admin credentials: email: `admin@admin.com`, password: `admin`*
+##### Note: _For production, include your frontend URL in the `whitelist` array within `src/index.ts`. Update the `.env` file by setting `DEV_MODE=PROD` to ensure that CORS is restricted. In `DEV_MODE=DEV`, any URL can send requests to the backend. Set `EMAIL_SERVICE=RESEND` to use the default email service as Resend. Note that in the free tier of Resend, you can only send emails to your own email account. The current setup utilizes the NodeMailer SMTP service. For testing the API, use the admin credentials: email: `admin@admin.com`, password: `admin`_
 
 ## API End Points
 
 ### 1. Authentication Routes
+
 ```bash
 /api/v0.1/auth/login                                      POST               //for login
 /api/v0.1/auth/register                                   POST               //for register
 /api/v0.1/auth/forgot-password                            GET                //for forgot password
-/api/v0.1/auth/reset-password                             POST               //for reset password 
+/api/v0.1/auth/reset-password                             POST               //for reset password
 ```
 
 ### 2. Users Routes
@@ -64,7 +62,6 @@
 /api/v0.1/review/:id                                     PUT                //for update a review
 ```
 
-
 ### 5. Profile Routes
 
 ```bash
@@ -72,11 +69,10 @@
 /api/v0.1/users/:userId/profile                          PUT                //for update profile and profile pic of a user
 ```
 
-
-
 ## Getting Started 🚀
 
 ### Prerequisites
+
 Before you begin contributing to this project, make sure you have the following set up:
 
 - [Node.js](https://nodejs.org/): A JavaScript runtime.
@@ -97,10 +93,11 @@ Before you begin contributing to this project, make sure you have the following 
    touch .env
    ```
 4. **Add the necessary configuration:**
+
    ```bash
     PORT = 8000
     JWT_SECRET="erknevlkenrlkijerjoikmlefnlfrnjfrklsdk;"        //jwt secret
-    JWT_COOKIE_EXPIRES_IN="3d"                                  //in days     
+    JWT_COOKIE_EXPIRES_IN="3d"                                  //in days
     RESEND_API=<resend-api>
     DATABASE_URL=<database-url>
     CLOUDINARY_CLOUD_NAME=<cloud-name>
@@ -111,71 +108,90 @@ Before you begin contributing to this project, make sure you have the following 
     EMAIL_SERVICE=RESEND                                       // RESEND or NODEMAILER
     EMAIL=<your-email>                                         // Need If you use Email service as Node Mailer
     PASSWORD=xbwcpouxmlzcauxm                                  //This password is not your Gmail password. To obtain it, enable two-step verification for your Gmail account. Then, create an app password in your Gmail settings then you get the password.
+    SMTP_HOST=smtp.gmail.com
+    SMTP_PORT=<your-smtp-port>
+    SMTP_SERVICE=gmail
+    SMTP_EMAIL=<your-email>                                    // same as EMAIL, you can simply use that if you wish to.
+    SMTP_PASSWORD=<your-email-password>                        // same as PASSWORD, you can simply use that if you wish to.
+
    ```
-5. **Migration with Database Schema (Optional):** 
+
+5. **Migration with Database Schema (Optional):**
    ```bash
    npx prisma migrate dev --name <name>
    ```
 6. **Run This Project:**
+
    ```bash
    npm run dev
    ```
 
    <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
 ## Vercel Deployment 🛫
 
 - Sign in to your Vercel account.
-- Click on __"Add New" -> "Project"__.
+- Click on **"Add New" -> "Project"**.
 - Choose a name for your service and select your Github Repo and Import.
+
 ### 1. Build Command
+
 ```bash
  npm run vercel-build
 ```
+
 ### 2. Install Command
+
 ```bash
  npm install
 ```
+
 ### 3. Start Command
+
 ```bash
  npm start
 ```
-Note : *__Dont forgot to Add Environment Variables__*
+
+Note : _**Dont forgot to Add Environment Variables**_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Render Deployment 🛫
 
 - Sign in to your Render account.
-- Click on __"New" -> "Web Service"__.
+- Click on **"New" -> "Web Service"**.
 - Choose a name for your service and select your Git provider (GitHub in this case).
 
 ### 1. Build Command
+
 ```bash
  npm install; npm run vercel-build
 ```
+
 ### 3. Start Command
+
 ```bash
  npm run start
 ```
-Note : *__Dont forgot to Add Environment Variables__*
+
+Note : _**Dont forgot to Add Environment Variables**_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
 ## About The Project
 
-
 - **Linting & Formatting:**
+
   - ✔️ ESLint for code linting
   - 🎨 Prettier for code formatting
 
 - **Deployment:**
+
   - 🌐 Ready for deployment on Vercel
   - 🚀 One-click deployment
 
 - **Development Workflow:**
+
   - 🔧 Configured for TypeScript
   - 🔄 Live reload for efficient development
   - 🛠 Optimized code for production
@@ -186,27 +202,21 @@ Note : *__Dont forgot to Add Environment Variables__*
   - 🚧 HTTP Parameter Pollution (HPP) protection
   - 🧼 MongoDB data sanitization with express-mongo-sanitize
   - 🚦 Rate limiting with express-rate-limit for protection against brute-force attacks
-  - 🌐 CORS (Cross-Origin Resource Sharing) configured to allow requests only from a specific origin  
-
+  - 🌐 CORS (Cross-Origin Resource Sharing) configured to allow requests only from a specific origin
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
 
-
-
 - **[![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/):** A JavaScript runtime built on Chrome's V8 JavaScript engine.
 - **[![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)](https://expressjs.com/):** Fast, unopinionated, minimalist web framework for Node.js.
 - **[![TypeScript](https://shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=FFF&style=flat-square)](https://www.typescriptlang.org/):** A superset of JavaScript that adds static types.
-- **[![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)](https://developer.mozilla.org/en-US/docs/Web/JavaScript):** The programming language of 
+- **[![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)](https://developer.mozilla.org/en-US/docs/Web/JavaScript):** The programming language of
 - **[![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/):** The database for modern applications.
 - **[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/):** Cloud platform for serverless deployment and hosting.
 - **[![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)](https://eslint.org/):** Pluggable linting utility for identifying and fixing code issues.
 - **[![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=white)](https://prettier.io/):** Opinionated code formatter to ensure consistent code styling the web.
 
-
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 ### 🖋️ Puskar Roy

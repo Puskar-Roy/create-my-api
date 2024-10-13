@@ -55,7 +55,7 @@ SMTP_PASSWORD=<your-email-password>
 
 ### 3. Set Up EJS Templates
 
-Create a folder `mail` inside your project and place the following EJS template file `review-notification.ejs`:
+in the mail folder inside your project use the following EJS template file `review-notification.ejs` for reference:
 
 #### `review-notification.ejs`
 
