@@ -17,6 +17,8 @@ export const createCourse = asyncHandler(
       const newCourse = await prisma.course.create({
         data: { title, category, level, creatorId },
       });
+      /* Incase of in-website notification contribution, contributors can refer to saving User data of created courses to the database!
+      can contact@BhairabMahanta
       const updatedUser = await prisma.user.update({
         where: { id: creatorId },
         data: {
@@ -25,7 +27,7 @@ export const createCourse = asyncHandler(
           },
         },
       });
-      console.log('updatedUser');
+*/
       return res.status(201).json(newCourse);
     } catch (error) {
       console.error('Error creating course:', error);

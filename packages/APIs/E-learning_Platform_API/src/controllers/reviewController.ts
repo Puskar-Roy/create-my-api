@@ -29,19 +29,19 @@ export const addReview = asyncHandler(async (req: Request, res: Response) => {
       return res.status(404).json({ message: 'Course not found' });
     }
 
-    // Find the course creator
-    const creator = await prisma.user.findUnique({
-      where: { id: course.creatorId },
-    });
-    const revewingUser = await prisma.user.findUnique({
-      where: { id: userId },
-    });
+    // Find the course creator and review creator
+    const [creator, reviewingUser] = await Promise.all([
+      prisma.user.findUnique({
+        where: { id: course.creatorId },
+      }),
+      prisma.user.findUnique({
+        where: { id: userId },
+      }),
+    ]);
 
     if (!creator) {
       return res.status(404).json({ message: 'Creator not found' });
     }
-
-    console.log('Course creator:', creator);
 
     // Now call your notification logic here to notify the course creator
     await notifyCourseOwner({
@@ -49,7 +49,7 @@ export const addReview = asyncHandler(async (req: Request, res: Response) => {
       creatorEmail: creator.email,
       reviewContent: content,
       reviewRating: rating,
-      revewingUser: revewingUser.name,
+      reviewingUser: reviewingUser.name,
     });
 
     res.status(201).json(review);
