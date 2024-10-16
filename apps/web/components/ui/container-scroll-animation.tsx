@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef } from "react";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
-import BubbleCursor from './custom-cursor'; // Import the BubbleCursor component
+ // Import the BubbleCursor component
 
 export const ContainerScroll = ({
   titleComponent,
@@ -40,7 +40,7 @@ export const ContainerScroll = ({
       className="h-[60rem] md:h-[65rem] flex items-center justify-center relative p-2 md:p-20"
       ref={containerRef}
     >
-      <BubbleCursor /> {/* Add the BubbleCursor here */}
+    {/* Add the BubbleCursor here */}
       <div
         className="py-10 md:py-40 w-full relative"
         style={{
