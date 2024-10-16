@@ -109,7 +109,7 @@ In addition to starter templates, we also provide __Existing APIs__ that you can
 - `E-learning Platform`
 - `2FA Auth`
 - `Real-time Chat API`
-- 
+
 <img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 ## 🛠️ Tech Stack

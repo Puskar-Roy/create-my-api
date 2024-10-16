@@ -22,9 +22,9 @@ const GIthubButton = () => {
     <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 group bg-gray-900 hover:bg-gray-950 transition-all duration-200 ease-in-out hover:ring-2 hover:ring-offset-2 hover:ring-gray-900">
       <svg
         className="mr-2 text-white"
-        stroke-linejoin="round"
-        stroke-linecap="round"
-        stroke-width="2"
+        strokeLinejoin="round"
+        strokeLinecap="round"
+        strokeWidth="2"
         stroke="currentColor"
         fill="none"
         viewBox="0 0 24 24"
@@ -39,9 +39,9 @@ const GIthubButton = () => {
       <span className="flex items-center ml-4 group-hover:text-yellow-500 transition-colors duration-200 ease-in-out">
         <svg
           className="text-yellow-500"
-          stroke-linejoin="round"
-          stroke-linecap="round"
-          stroke-width="2"
+          strokeLinejoin="round"
+          strokeLinecap="round"
+          strokeWidth="2"
           stroke="currentColor"
           fill="none"
           viewBox="0 0 24 24"
