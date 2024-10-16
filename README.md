@@ -1,6 +1,3 @@
-<a name="readme-top"></a>
-
-<br />
 <div align="center">
   <a href="https://github.com/Puskar-Roy/create-my-api">
     <img src="./docs/assets/create-api.png" alt="Logo" width="170" height="170">
@@ -23,11 +20,36 @@
   </p>
 </div>
 
+<table align="center">
+    <thead align="center">
+        <tr border: 2px;>
+            <td><b>🌟 Stars</b></td>
+            <td><b>🍴 Forks</b></td>
+            <td><b>🐛 Issues</b></td>
+            <td><b>🔔 Open PRs</b></td>
+            <td><b>🔕 Close PRs</b></td>
+        </tr>
+     </thead>
+    <tbody>
+         <tr>
+            <td><img alt="Stars" src="https://img.shields.io/github/stars/Puskar-Roy/create-my-api?style=flat&logo=github"/></td>
+             <td><img alt="Forks" src="https://img.shields.io/github/forks/Puskar-Roy/create-my-api?style=flat&logo=github"/></td>
+            <td><img alt="Issues" src="https://img.shields.io/github/issues/Puskar-Roy/create-my-api?style=flat&logo=github"/></td>
+            <td><img alt="Open Pull Requests" src="https://img.shields.io/github/issues-pr/Puskar-Roy/create-my-api?style=flat&logo=github"/></td>
+           <td><img alt="Close Pull Requests" src="https://img.shields.io/github/issues-pr-closed/Puskar-Roy/create-my-api?style=flat&color=green&logo=github"/></td>
+        </tr>
+    </tbody>
+</table>
+
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+
 ## 🚨 Note 
 
  - Please Check The [CONTRIBUTING.md](./CONTRIBUTING.md) and Always Push In ```dev``` Branch :)
  - We are Gonna plan to make a **Free API Store** wiht all of the APIs we have, so Feel Free to Contribute in the Next JS Web Part :)
  - Also In Web Part We want to make a Documentetion Part, you can contribute with that :)
+
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 ## ⚙️ Installation
 
@@ -57,12 +79,14 @@
 
  *__Note - You Can Check [Guidebook](./docs/md/Guidebook.md) for more details__*
 
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 ## 🛠️ Prerequisites
 
 - [Node.js](https://nodejs.org/) installed on your machine 🟩
 - [Git](https://git-scm.com/) installed on your machine 🐙
 
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 ## 📚 API Starter Templates
 
@@ -74,6 +98,7 @@ __*Create My-API*__ offers a variety of starter templates to get your project up
 - `Express-Javascript-with-Postgresql`
 - `Nestjs-Typescript-with-Postgresql`
 
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 ## 📂 Existing APIs
 
@@ -84,6 +109,8 @@ In addition to starter templates, we also provide __Existing APIs__ that you can
 - `E-learning Platform`
 - `2FA Auth`
 - `Real-time Chat API`
+- 
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 ## 🛠️ Tech Stack
 __Create My-API supports a variety of technologies and databases:__
@@ -110,7 +137,7 @@ __Create My-API supports a variety of technologies and databases:__
 
 </div>
 
-
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 ## ❤️ Contributing
 
@@ -137,6 +164,7 @@ __*Note: If contributions do not follow the guidelines specified in the [CONTRIB
 </a>
 </div>
 
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 ## 📬 Contact
 
