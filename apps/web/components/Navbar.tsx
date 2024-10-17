@@ -20,7 +20,7 @@ export const Navbar = () => {
 
   return (
     <div className="w-[90%] sm:w-[80%] mx-auto mb-12 py-6">
-      <nav className="relative z-20 bg-transparent">
+      <nav className="relative z-30 bg-transparent">
         <div className="px-6 md:px-12 lg:container lg:mx-auto lg:px-6 lg:py-4">
           <div className="flex items-center justify-between">
             {/* Logo Section */}
@@ -44,20 +44,35 @@ export const Navbar = () => {
               />
               <label
                 htmlFor="hamburger"
-                className="lg:hidden p-6 cursor-pointer relative z-20 -mr-6"
+                className="lg:hidden p-6 cursor-pointer relative z-30 -mr-6"
               >
-                <div className="h-0.5 w-6 bg-white m-auto rounded transition-transform duration-300"></div>
-                <div className="mt-2 h-0.5 w-6 bg-white m-auto rounded transition-transform duration-300"></div>
+                <div
+                  className={`h-0.5 w-6 bg-white m-auto rounded transition-transform duration-300 ${
+                    isOpen ? "rotate-45 translate-y-[6px]" : ""
+                  }`}
+                ></div>
+                <div
+                  className={`mt-2 h-0.5 w-6 bg-white m-auto rounded transition-transform duration-300 ${
+                    isOpen ? "-rotate-45 -translate-y-[6px]" : ""
+                  }`}
+                ></div>
               </label>
 
+              {/* Overlay for Blur Background */}
               <div
-                className={`fixed inset-0 w-[calc(100%-4.5rem)] translate-x-[-100%] transition-transform duration-300 lg:translate-x-0 lg:static lg:w-auto lg:shadow-none peer-checked:translate-x-0 ${
-                  isOpen ? "-translate-y-20" : ""
+                className={`fixed inset-0 bg-black bg-opacity-50 backdrop-blur-lg transition-opacity duration-300 ${
+                  isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+                }`}
+              ></div>
+
+              <div
+                className={`fixed inset-0 w-[calc(100%-4.5rem)] translate-x-[-100%] transition-transform duration-300 lg:translate-x-0 lg:static lg:w-auto peer-checked:translate-x-0 ${
+                  isOpen ? "-translate-y-0" : "-translate-y-full"
                 }`}
               >
                 <ul className="flex flex-col items-center space-y-8 px-6 pt-32 text-white md:px-12 lg:flex-row lg:space-y-0 lg:space-x-12 lg:pt-0">
                   <li>
-                    <Link href="#" className="group relative">
+                    <Link href="/" className="group relative">
                       <span className="relative hover:text-orange-300">
                         Home
                       </span>
