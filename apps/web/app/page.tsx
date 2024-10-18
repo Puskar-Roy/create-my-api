@@ -10,6 +10,7 @@ import CardsSection from "../components/CardsSection";
 import { InfinitetDemo } from "../components/ScrollSection";
 import { Navbar } from "../components/Navbar";
 import Footer from "../components/Footer";
+import ScrollProgressBar from "../components/ScrollProgress"; // Import the progress bar
 
 export default function Home() {
   const init = useCallback(async (engine: Engine) => {
@@ -18,7 +19,10 @@ export default function Home() {
 
   return (
     <main className="">
-      <div className="min-h-[120rem] w-full bg-slate-900   dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center">
+      {/* Scroll Progress Bar */}
+      <ScrollProgressBar />
+
+      <div className="min-h-[120rem] w-full bg-slate-900 dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center">
         {/* Radial gradient for the container to give a faded look */}
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
         <Particles
@@ -152,7 +156,7 @@ export default function Home() {
             <CardsSection />
             <InfinitetDemo />
           </div>
-          <Footer/>
+          <Footer />
         </div>
       </div>
     </main>
