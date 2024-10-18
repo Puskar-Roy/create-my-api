@@ -11,6 +11,7 @@ import { InfinitetDemo } from "../components/ScrollSection";
 import { Navbar } from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollProgressBar from "../components/ScrollProgress"; // Import the progress bar
+import BackToTopButton from "../components/BacktoTop";
 
 export default function Home() {
   const init = useCallback(async (engine: Engine) => {
@@ -156,7 +157,8 @@ export default function Home() {
             <CardsSection />
             <InfinitetDemo />
           </div>
-          <Footer />
+          <BackToTopButton />
+          <Footer/>
         </div>
       </div>
     </main>

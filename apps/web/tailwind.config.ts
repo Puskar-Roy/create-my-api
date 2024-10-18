@@ -40,9 +40,15 @@ const config: Config = {
           "75%": { transform: "translateY(-5px)" },
           "100%": { transform: "translateY(0)" },
         },
+        rotate: {
+          '0%': { transform: 'rotate(0deg) scale(10)' },
+          '100%': { transform: 'rotate(-360deg) scale(10)' },
+        },
       },
       animation: {
         float: "float 4s ease-in-out infinite",
+        rotate: 'rotate 10s linear infinite',
+
       },
     },
   },

@@ -8,53 +8,59 @@ import { sendEmail, sendEmailwithNodemailer } from '../util/sendEmail';
 import { sendOTP, sendOTPwithNodemailer } from '../util/sendOtp';
 import config from '../config/config';
 const prisma = new PrismaClient();
-
-export const login = asyncHandler(async (req: Request, res: Response) => {
-  const { email, password } = req.body;
-  if (!email || !password) {
-    throw Error('All fields must be filled');
-  }
-  try {
-    const user = await prisma.user.findUnique({ where: { email } });
-    console.log(user);
-    if (!user) {
-      throw new Error('Invalid credentials');
+export interface AuthenticatedRequest extends Request {
+  id: string;
+}
+export const login = asyncHandler(
+  async (req: AuthenticatedRequest, res: Response) => {
+    const { email, password } = req.body;
+    if (!email || !password) {
+      throw Error('All fields must be filled');
     }
-    if (!user.isVerified) {
-      config.EMAIL_SERVICE === 'RESEND'
-        ? await sendEmail(user.id)
-        : await sendEmailwithNodemailer(user.id);
-      // await sendEmail(user.user.id);              //For Resend Mailer
-      // await sendEmailwithNodemailer(user.id); //For NodeMailer
+    try {
+      const user = await prisma.user.findUnique({ where: { email } });
+      console.log(user);
+      if (!user) {
+        throw new Error('Invalid credentials');
+      }
+      if (!user.isVerified) {
+        config.EMAIL_SERVICE === 'RESEND'
+          ? await sendEmail(user.id)
+          : await sendEmailwithNodemailer(user.id);
+        // await sendEmail(user.user.id);              //For Resend Mailer
+        // await sendEmailwithNodemailer(user.id); //For NodeMailer
+        return res.status(200).json({
+          success: true,
+          message: 'At First Verify Your Email,A Verification email sent.',
+        });
+      }
+      const match = await bcrypt.compare(password, user.password);
+      if (!match) {
+        throw new Error('Invalid credentials');
+      }
+      const token = createToken(user.id);
+
       return res.status(200).json({
+        message: 'Login successful!',
         success: true,
-        message: 'At First Verify Your Email,A Verification email sent.',
+        token: token,
+        email: user.email,
+        id: user.id,
       });
-    }
-    const match = await bcrypt.compare(password, user.password);
-    if (!match) {
-      throw new Error('Invalid credentials');
-    }
-    const token = createToken(user.id);
-
-    return res.status(200).json({
-      message: 'Login successful!',
-      success: true,
-      token: token,
-      email: user.email,
-      id: user.id,
-    });
-  } catch (error) {
-    console.error('Login error:', error.message);
-    if (error.message === 'Invalid credentials') {
-      return res
-        .status(401)
-        .json({ message: 'Invalid email or password.', success: false });
-    } else {
-      return res.status(500).json({ message: 'Login failed.', success: false });
+    } catch (error) {
+      console.error('Login error:', error.message);
+      if (error.message === 'Invalid credentials') {
+        return res
+          .status(401)
+          .json({ message: 'Invalid email or password.', success: false });
+      } else {
+        return res
+          .status(500)
+          .json({ message: 'Login failed.', success: false });
+      }
     }
   }
-});
+);
 
 export const register = asyncHandler(async (req: Request, res: Response) => {
   const { name, email, password } = req.body;

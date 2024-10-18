@@ -2,17 +2,32 @@ import { Request, Response } from 'express';
 import asyncHandler from '../util/catchAsync';
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
-
+export interface AuthenticatedRequest extends Request {
+  id: string;
+}
 export const createCourse = asyncHandler(
-  async (req: Request, res: Response) => {
+  async (req: AuthenticatedRequest, res: Response) => {
     const { title, category, level } = req.body;
-    if (!title || !category || !level) {
-      return res.status(400).json({ error: 'All fields must be filled' });
+    const creatorId: any = req.id;
+    if (!title || !category || !level || !creatorId) {
+      return res.status(400).json({ error: 'All fields must be provided' });
     }
+
     try {
       const newCourse = await prisma.course.create({
-        data: { title, category, level },
+        data: { title, category, level, creatorId },
       });
+      /* Incase of in-website notification contribution, contributors can refer to saving User data of created courses to the database!
+      can contact@BhairabMahanta
+      const updatedUser = await prisma.user.update({
+        where: { id: creatorId },
+        data: {
+          createdCourses: {
+            connect: { id: newCourse.id }, // Connecting the created course to the user
+          },
+        },
+      });
+*/
       return res.status(201).json(newCourse);
     } catch (error) {
       console.error('Error creating course:', error);
