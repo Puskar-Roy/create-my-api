@@ -20,8 +20,8 @@ export const Navbar = () => {
 
   return (
     <>
-      {/* Add padding to prevent overlap */}
-      <div className="pt-16"></div>
+      {/* Add padding to main content to avoid overlap */}
+      <div className="pt-20 lg:pt-24"></div>
 
       <div className="fixed top-0 left-0 w-full bg-transparent z-50">
         <nav className="relative bg-transparent">
