@@ -21,7 +21,6 @@ const GithubButton = () => {
 
   return (
     <div className="relative flex justify-center overflow-hidden bg-black font-sans rounded-[0.60rem]">
-      {/* Actual Github button with input field styles */}
       <div className="mx-auto flex w-full max-w-lg items-center justify-center">
         <div className="relative z-10 flex w-full cursor-pointer items-center overflow-hidden rounded-xl border border-slate-800 p-[1.5px]">
           <div className="animate-rotate absolute inset-0 h-full w-full rounded-full bg-[conic-gradient(#e90e50_20deg,transparent_120deg)]"></div>
