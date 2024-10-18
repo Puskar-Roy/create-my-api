@@ -28,7 +28,7 @@
     "@next/eslint-plugin-next": "^14.1.1",
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
-    "@types/eslint": "^8.56.5",
+    "@types/eslint": "^9.6.1",
     "@types/node": "^20.11.24",
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
