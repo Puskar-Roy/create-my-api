@@ -1,0 +1,33 @@
+version: '3'
+services:
+  node-app:
+    build: .  # This tells Docker Compose to use the Dockerfile in the current directory
+    container_name: node-container
+    ports:
+      - "3000:3000"  # Expose the Node.js app on port 3000
+    environment:
+      MONGO_URL: mongodb://mongo:27017/onlinebooksales
+      PORT: 3000
+      COOKIE_EXPIRE: 3000
+      JWT_SECRET: YourJWTSecret  # Pass env variables
+    depends_on:
+      - mongo  # Ensure MongoDB starts before the Node.js app
+    networks:
+      - app-network
+
+  mongo:
+    image: mongo:latest  # Use the latest MongoDB image
+    container_name: mongo-container
+    ports:
+      - "27017:27017"  # Expose MongoDB on port 27017
+    volumes:
+      - mongo-data:/data/db  # Persist MongoDB data
+    networks:
+      - app-network
+
+volumes:
+  mongo-data: #To hold persitent data
+
+networks:
+  app-network:
+    driver: bridge
