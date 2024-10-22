@@ -1,15 +1,15 @@
-name: Issue Opening Comment!
+name: Issue Opening Comment and Add Labels
 on:
   issues:
     types:
       - opened
 
 jobs:
-  comment:
+  comment_and_label:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Issue Opened
+      - name: Comment on Issue Opened
         uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.MY_SEC }}
@@ -21,6 +21,10 @@ jobs:
                 This issue provides an excellent opportunity for us to enhance our project, and we're excited to have you join us! Please take a moment to review our [CONTRIBUTING GUIDELINES](../blob/master/CONTRIBUTING.md) before getting started.
                 If you have any questions or need assistance, feel free to reach out to us on [LinkedIn](https://www.linkedin.com/in/puskar-roy/).❤️
             `;
-
             await github.issues.createComment({ owner, repo, issue_number: number, body: commentBody });
-            console.log(`Commented on the issue: ${commentBody}.`);
+
+      - name: Add labels to the issue
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          github_token: ${{ secrets.MY_SEC }}
+          labels: 'gssoc-ext,hacktoberfest,hacktoberfest-accepted'

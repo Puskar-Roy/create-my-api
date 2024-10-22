@@ -1,0 +1,51 @@
+{
+  "name": "complier",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "author": "",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^20.9.0 || >=22.5.1"
+  },
+  "scripts": {
+    "build": "npm run clean && npm run build:ts",
+    "build:ts": "node build.mjs",
+    "clean": "rimraf dist",
+    "dev": "npm run clean && npm run dev-start",
+    "dev-start": "concurrently --handle-input npm:dev:*",
+    "dev:app": "nodemon --watch dist --watch package-lock.json --exec \"npm start\"",
+    "dev:build": "node build.mjs --watch",
+    "dev:types": "tsc --watch --noEmit --preserveWatchOutput --pretty",
+    "docker:build": "docker build --tag complier .",
+    "docker:run": "docker run --init --interactive --tty --publish 3000:3000 complier",
+    "format": "prettier --write .",
+    "start": "node dist/index.js",
+    "test": "concurrently --group npm:test:* && npm run test-node",
+    "test-node": "node --import ./test/setup.mjs --test --test-reporter spec",
+    "test:format": "prettier --check .",
+    "test:lint": "eslint .",
+    "test:types": "tsc --noEmit --pretty"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.10.0",
+    "@types/eslint__js": "^8.42.3",
+    "@types/express": "^5.0.0",
+    "@types/node": "^20.16.5",
+    "concurrently": "^9.0.1",
+    "dotenv": "^16.4.5",
+    "esbuild": "^0.23.1",
+    "eslint": "^9.10.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-n": "^17.10.3",
+    "express": "^4.21.0",
+    "globals": "^15.9.0",
+    "nodemon": "^3.1.6",
+    "prettier": "3.3.3",
+    "rimraf": "^6.0.1",
+    "typescript": "~5.5.4",
+    "typescript-eslint": "^8.6.0"
+  }
+}

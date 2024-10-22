@@ -1,0 +1,21 @@
+version: 2
+updates:
+ 
+  - package-ecosystem: "npm"
+    directory: "/apps/main-cli" 
+    schedule:
+      interval: "daily" 
+    commit-message:
+      prefix: "chore" 
+    open-pull-requests-limit: 5
+    target-branch: "dev" 
+
+  
+  - package-ecosystem: "npm"
+    directory: "/apps/web" 
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "chore"
+    open-pull-requests-limit: 5
+    target-branch: "dev" 
