@@ -12,16 +12,16 @@ const alata = Montserrat({
 
 function Footer() {
   return (
+
     <div className="w-full bg-slate-900 dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center pb-10">
       <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       <footer className="bg-transparent rounded-lg m-4 mx-auto w-[80%] z-10 flex items-center justify-center">
         <div className="w-full max-w-screen-xl mx-auhref p-4 md:py-8">
+
           <div className="sm:flex sm:items-center sm:justify-between">
-            <Link
-              href="/"
-              className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse"
-            >
+            <Link href="/" className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
               <Image src={logo} height={50} width={50} alt="logo" />
+
               <h2 className={`text-xl sm:text-2xl font-bold ${alata.className}`}>
                 <span
                   className={`text-orange-300 font-extrabold ${alata.className}`}
@@ -62,6 +62,7 @@ function Footer() {
                   NPM
                 </Link>
               </li>
+
               <li>
                 <Link href="https://www.linkedin.com/in/puskar-roy/">
                   <LinkedInButton />
@@ -69,6 +70,7 @@ function Footer() {
               </li>
             </ul>
           </div>
+
           <hr className="mt-4 border-gray-200 sm:mx-auto lg:my-8" />
           {/* Centered Terms and Conditions */}
           <div className="flex justify-center items-center mt-4">
@@ -80,6 +82,7 @@ function Footer() {
           </div>
           <span className="block text-xs sm:text-sm text-white sm:text-center">
             © Designed and Developed By{" "}
+
             <Link href="https://puskarroy.site" className="hover:underline">
               Puskar Roy
             </Link>

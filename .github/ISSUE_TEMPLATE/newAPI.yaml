@@ -38,6 +38,8 @@ body:
       label: Select the open source program you are contributing to
       multiple: true
       options:
+        - GSSOC 2024 EXTD
+        - Hacktoberfest 2024
         - Other
     validations:
       required: true
