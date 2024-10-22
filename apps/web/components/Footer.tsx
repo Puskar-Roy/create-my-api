@@ -4,13 +4,12 @@ import Link from "next/link";
 import { Montserrat } from "next/font/google";
 import LinkedInButton from "./ui/TailwindButton";
 
-
-
 const alata = Montserrat({
   weight: "800",
   subsets: ["latin"],
   display: "swap",
 });
+
 function Footer() {
   return (
     <div className="w-full bg-slate-900  dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center pb-10">
@@ -70,7 +69,12 @@ function Footer() {
               </li>
             </ul>
           </div>
-          <hr className="my-6 border-gray-200 sm:mx-auhref  lg:my-8" />
+          {/* Removed the hr line */}
+          <span className="block text-sm text-white sm:text-center ">
+            <Link href="/terms" className="text-blue-400">
+              Terms and Conditions
+            </Link>
+          </span>
           <span className="block text-sm text-white sm:text-center ">
             © Design And Devloped By{" "}
             <Link href="https://puskarroy.site" className="hover:underline">
