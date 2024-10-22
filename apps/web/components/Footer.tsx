@@ -70,13 +70,14 @@ function Footer() {
             </ul>
           </div>
           {/* Removed the hr line */}
+          <hr className="mt-4 border-gray-200 sm:mx-auto lg:my-8" />
           <span className="block text-sm text-white sm:text-center ">
             <Link href="/terms" className="text-blue-400">
               Terms and Conditions
             </Link>
           </span>
           <span className="block text-sm text-white sm:text-center ">
-            © Design And Devloped By{" "}
+            © Designed and Devloped By{" "}
             <Link href="https://puskarroy.site" className="hover:underline">
               Puskar Roy
             </Link>
