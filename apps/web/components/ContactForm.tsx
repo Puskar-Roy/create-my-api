@@ -1,5 +1,3 @@
-// src/components/ContactForm.tsx
-
 import React, { useState } from 'react';
 
 interface ContactFormProps {
@@ -17,21 +15,20 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // Simulate form submission
         console.log(formData);
         setSubmitted(true);
-        setFormData({ name: '', email: '', message: '' }); // Reset form after submission
+        setFormData({ name: '', email: '', message: '' });
     };
 
     return (
         <div className="modal">
-            <div className="modal-content">
+            <div className="modal-content dark-theme">
                 <span className="close" onClick={onClose}>&times;</span>
                 {submitted ? (
                     <div className="success-message">Thank you for contacting us!</div>
                 ) : (
                     <form onSubmit={handleSubmit}>
-                        <h2 className="form-title">Contact Us</h2>
+                        <h2 className="form-title neon-title">Contact Us</h2>
                         <label htmlFor="name">Name:</label>
                         <input
                             type="text"
@@ -40,7 +37,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
                             value={formData.name}
                             onChange={handleChange}
                             required
-                            className="form-input"
+                            className="form-input neon-input"
                         />
                         <label htmlFor="email">Email:</label>
                         <input
@@ -50,7 +47,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
                             value={formData.email}
                             onChange={handleChange}
                             required
-                            className="form-input"
+                            className="form-input neon-input"
                         />
                         <label htmlFor="message">Message:</label>
                         <textarea
@@ -59,9 +56,9 @@ const ContactForm: React.FC<ContactFormProps> = ({ onClose }) => {
                             value={formData.message}
                             onChange={handleChange}
                             required
-                            className="form-textarea"
+                            className="form-textarea neon-input"
                         ></textarea>
-                        <button type="submit" className="submit-button">Send Message</button>
+                        <button type="submit" className="submit-button neon-button">Send Message</button>
                     </form>
                 )}
             </div>
