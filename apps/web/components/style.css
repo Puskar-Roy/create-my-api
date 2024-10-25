@@ -1,0 +1,106 @@
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #1f1f1f; /* Dark background */
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+}
+
+.close {
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    float: right;
+}
+
+.close:hover {
+    color: #f05454;
+}
+
+.form-title {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.neon-title {
+    text-shadow: 0 0 10px #f05454, 0 0 20px #f05454; /* Neon effect for title */
+}
+
+label {
+    color: #f7f7f7; /* Brighter label text */
+    font-size: 16px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-input, .form-textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #2b2b2b;
+    border: 1px solid #555;
+    border-radius: 5px;
+    color: #e0e0e0; /* Lighter text inside inputs for better contrast */
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.neon-input {
+    border: 1px solid #f05454;
+    box-shadow: 0 0 5px rgba(240, 84, 84, 0.5); /* Neon border effect */
+}
+
+.form-input:focus, .form-textarea:focus {
+    box-shadow: 0 0 10px #f05454, 0 0 20px #f05454; /* Neon glow on focus */
+}
+
+.form-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #f05454;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.neon-button {
+    background-color: #f05454;
+    box-shadow: 0 0 10px #f05454, 0 0 20px rgba(240, 84, 84, 0.5);
+}
+
+.submit-button:hover {
+    background-color: #e03e3e;
+}
+.success-message {
+    color: #f05454; /* Bright red for visibility */
+    font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(240, 84, 84, 0.7); /* Neon effect for success message */
+}
