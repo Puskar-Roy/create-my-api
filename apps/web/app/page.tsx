@@ -12,7 +12,7 @@ import { Navbar } from "../components/Navbar";
 import Footer from "../components/Footer";
 import ScrollProgressBar from "../components/ScrollProgress"; // Import the progress bar
 import BackToTopButton from "../components/BacktoTop";
-
+import '../components/style.css'; 
 export default function Home() {
   const init = useCallback(async (engine: Engine) => {
     await loadFull(engine);
