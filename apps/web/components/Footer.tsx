@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Montserrat } from "next/font/google";
 import LinkedInButton from "./ui/TailwindButton";
+import React, { useState } from 'react'; // Import useState for modal state
+import ContactForm from './ContactForm';
 
 const alata = Montserrat({
   weight: "800",
@@ -11,6 +13,7 @@ const alata = Montserrat({
 });
 
 function Footer() {
+
   return (
 
     <div className="w-full bg-slate-900 dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center pb-10">
@@ -87,9 +90,9 @@ function Footer() {
               Puskar Roy
             </Link>
           </span>
+
+   
         </div>
-      </footer>
-    </div>
   );
 }
 
