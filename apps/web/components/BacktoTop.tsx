@@ -13,6 +13,7 @@ import React, { useEffect, useState } from "react";
  */
 const BackToTopButton: React.FC = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false); // Tracks button visibility state
+  const [isHovered, setIsHovered] = useState<boolean>(false); // Tracks hover state
 
   /**
    * Toggles the visibility of the button based on the scroll position.
@@ -50,14 +51,24 @@ const BackToTopButton: React.FC = () => {
   return (
     <button
       onClick={scrollToTop}
-      // Dynamically applies opacity class based on visibility state
       className={`fixed bottom-7 right-7 p-2 text-white rounded-full shadow-md transition-opacity duration-300 ${
         isVisible ? "opacity-100" : "opacity-0"
-      }`}
+      } ${!isHovered ? "animate-bounce" : ""}`} // Add bounce animation unless hovered
       style={{
         display: isVisible ? "flex" : "none", // Controls display
         zIndex: 1, // Ensures the button stays above other elements
-        backgroundColor: "#EF4444", // Sets background color to red
+        background: "linear-gradient(135deg,brown, #EF4444, #F97316)", // Gradient from red to orange
+        transition: "background 0.3s", // Smooth transition for background
+      }}
+      onMouseEnter={(e) => {
+        setIsHovered(true); // Set hover state to true
+        // Brighten the background on hover
+        e.currentTarget.style.background = "linear-gradient(135deg, #FF6F61, #FF9C47)"; // Brighter colors
+      }}
+      onMouseLeave={(e) => {
+        setIsHovered(false); // Set hover state to false
+        // Revert to original background when not hovering
+        e.currentTarget.style.background = "linear-gradient(135deg, #EF4444, #F97316)"; // Original colors
       }}
     >
       {/* SVG icon for the button */}
