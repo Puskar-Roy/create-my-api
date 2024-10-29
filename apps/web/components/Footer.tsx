@@ -5,6 +5,7 @@ import { Montserrat } from "next/font/google";
 import LinkedInButton from "./ui/TailwindButton";
 import React, { useState } from 'react'; // Import useState for modal state
 import ContactForm from './ContactForm';
+import { FaInstagram, FaGithub, FaFacebook, FaXTwitter } from "react-icons/fa6";
 
 const alata = Montserrat({
   weight: "800",
@@ -14,7 +15,7 @@ const alata = Montserrat({
 
 function Footer() {
   const [isModalOpen, setModalOpen] = useState(false);
-
+  const [hovered, setHovered] = useState<number | null>(null);
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
 
@@ -32,6 +33,30 @@ function Footer() {
                 <span className="text-red-500 font-extrabold">API</span>
               </h2>
             </Link>
+            <ul className="flex flex-wrap items-center mb-6 text-white" style={{ alignItems: 'center' }}>
+              {[
+                { href: "https://www.instagram.com/", label: <FaInstagram style={{ fontSize: '1.4rem' }} /> },
+                { href: "https://github.com/", label: <FaGithub style={{ fontSize: '1.3rem' }} /> },
+                { href: "https://www.facebook.com/", label: <FaFacebook style={{ fontSize: '1.3rem' }} /> },
+                { href: "https://www.x.com/", label: <FaXTwitter style={{ fontSize: '1.3rem' }} /> },
+              ].map((link, index) => (
+                <li key={index} style={{ marginRight: '1rem' }}>
+                  <a
+                    href={link.href}
+                    target="_blank" // Open in a new tab
+                    rel="noopener noreferrer" // Security best practice
+                    onMouseEnter={() => setHovered(index)} // Set hover index
+                    onMouseLeave={() => setHovered(null)} // Reset hover index
+                    style={{
+                      color: hovered === index ? '#66D5FF' : 'white', // Change color on hover
+                      textDecoration: 'none' // Remove underline
+                    }} >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
             <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0">
               {[
                 { href: "/docs", label: "Docs" },
