@@ -19,6 +19,126 @@
     max-width: 90%;
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
 }
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8); /* Dark overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #1c1c1c; /* Dark background for the modal */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.6); /* Orange glow */
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    display: flex; /* Flex layout for columns */
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #ff4500; /* Orange red color */
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.contact-container {
+    display: flex;
+    width: 100%; /* Ensure the container fills the modal */
+}
+
+.info-column {
+    flex: 1; /* Left column takes up 1 part */
+    padding: 10px;
+    color: #ff4500; /* Orange red text */
+    margin-top: 5rem;
+}
+
+.form-column {
+    flex: 2; /* Right column takes up 2 parts */
+    padding: 10px;
+}
+.separator {
+    width:1px; /* Width of the vertical line */
+    background-color: #fc5f26; /* Line color */
+    margin: 0 20px; 
+    opacity: 0.6;/* Margin between the columns */
+    height: auto; /* Stretch to fit */
+}
+.info-title {
+    margin-top: -12px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.form-title {
+    color: #ff4500; /* Orange red color */
+    text-align: center;
+    margin-bottom: 20px;
+    margin-left: -280px;
+    text-shadow: 0 0 10px rgba(255, 165, 0, 0.8); /* Neon effect */
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ff4500; /* Orange red border */
+    border-radius: 5px;
+    background: #333; /* Dark background for inputs */
+    color: #fff; /* White text color */
+    transition: border-color 0.3s;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    border-color: #ff4500; /* Bright orange border on focus */
+    outline: none; /* Remove default outline */
+}
+
+.submit-button {
+    background: linear-gradient(45deg, #ff4500, #ff8c00); /* Orange gradient */
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background 0.3s;
+    box-shadow: 0 0 2px rgba(255, 165, 0, 0.8); /* Neon effect */
+}
+
+.submit-button:hover {
+    background: linear-gradient(45deg, #ff8c00, #ff4500); /* Reverse gradient on hover */
+}
+
+.success-message {
+    color: #ff8c00; /* Light orange color */
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+}
+.info-icon {
+    margin-right: 10px; /* Space between the icon and text */
+    color: #ff4500; /* Orange red color for the icons */
+    vertical-align: middle; /* Align icon vertically with text */
+    font-size: 1.5em;
+    display: flex; /* Use flexbox for each row */
+    align-items: center;
+     /* Additional size adjustment */
+}
 
 .close {
     color: #fff;
