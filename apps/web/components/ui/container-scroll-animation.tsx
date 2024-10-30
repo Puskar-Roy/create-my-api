@@ -2,7 +2,7 @@
 import React, { useRef } from "react";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
  // Import the BubbleCursor component
-
+import CursorTrail from "../Cursor";
 export const ContainerScroll = ({
   titleComponent,
   children,
@@ -40,6 +40,7 @@ export const ContainerScroll = ({
       className="h-[60rem] md:h-[65rem] flex items-center justify-center relative p-2 md:p-20"
       ref={containerRef}
     >
+      <CursorTrail/>
     {/* Add the BubbleCursor here */}
       <div
         className="py-10 md:py-40 w-full relative"

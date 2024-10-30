@@ -20,6 +20,30 @@
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
 }
 
+  
+  .cursor-trail {
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+  }
+  
+  .circle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, 
+      rgba(255, 165, 0, 0.8),      /* Bright Orange */
+      rgba(255, 99, 71, 0.6),      /* Tomato Red */
+      rgba(220, 20, 60, 0.5),      /* Crimson */
+      rgba(178, 34, 34, 0.4)       /* Firebrick */
+    );
+    transition: transform 0.15s ease, opacity 0.15s ease;
+  }
+  
+
 .close {
     color: #fff;
     font-size: 24px;
