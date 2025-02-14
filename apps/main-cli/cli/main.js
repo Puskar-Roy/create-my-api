@@ -6,7 +6,7 @@ const {
   dataBasePrompt,
   backendPrompt,
   jsPrompt,
-  nestPrompt,  
+  nestPrompt,
   nestJsOrmPromt,
   servicePrompt,
   existingAPIPromt,
@@ -63,6 +63,21 @@ const runCLI = async (copyDir) => {
       backendResponse.backend === "Node Js and Express Js" &&
       languageResponse.language === "Typescript" &&
       databaseResponse.database === "PostgreSQL"
+    ) {
+      copyDir(
+        path.resolve(__dirname, "../templates/node-express-ts-postgrsql"),
+        path.resolve(process.cwd(), projectResponse.projectname),
+        (err) => {
+          if (err) {
+            console.log("Failed to copy directory:", err);
+            return;
+          }
+        },
+      );
+    } else if (
+      backendResponse.backend === "Node Js and Express Js" &&
+      languageResponse.language === "Javascript" &&
+      databaseResponse.database === "MongoDB"
     ) {
       copyDir(
         path.resolve(__dirname, "../templates/node-express-ts-postgrsql"),

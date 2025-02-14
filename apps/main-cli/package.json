@@ -9,12 +9,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev":"echo Working",
+    "dev": "echo Working",
     "prettie": "npx prettier . --write"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Puskar-Roy/build-api.git"
+    "url": "git+https://github.com/Puskar-Roy/create-my-api"
   },
   "author": "Puskar Roy",
   "license": "MIT",
