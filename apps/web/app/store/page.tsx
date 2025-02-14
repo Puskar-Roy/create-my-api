@@ -3,9 +3,10 @@ import GlobalWrapper from "../../components/common/GlobalWrapper";
 
 const page = () => {
   return (
-   
-      <div className="text-white">Store</div>
-    
+    <div className="text-white">
+      {" "}
+      <p className="text-2xl text-center">Store Coming Soon</p>
+    </div>
   );
 };
 
