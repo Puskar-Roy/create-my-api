@@ -7,9 +7,9 @@ import Link from "next/link";
 
 const page = () => {
   return (
-    <div className="flex justify-center flex-col gap-3 items-center text-3xl text-orange-300 bg-slate-800 h-screen w-screen">
-      <div className="min-h-[100vh] w-full bg-slate-900   dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center">
-        <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+    <div className="flex justify-center flex-col gap-3  text-3xl text-orange-300 h-screen">
+      
+        
         <div className="flex justify-center items-center gap-5 flex-col">
           <Image
             className="animate-float"
@@ -39,7 +39,7 @@ const page = () => {
           </Link>
         </div>
       </div>
-    </div>
+   
   );
 };
 

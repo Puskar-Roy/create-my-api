@@ -73,17 +73,19 @@ export const Navbar = () => {
 
               <div
                 className={`peer-checked:translate-x-0 fixed inset-0 w-[calc(100%-4.5rem)] translate-x-[-100%]  shadow-xl transition duration-300  lg:w-auto lg:static lg:shadow-none lg:translate-x-0 ${
-                  isOpen ? "translate-x-0 -translate-y-20" : ""
+                  isOpen ? "translate-x-0 -translate-y-30 backdrop-blur-xl rounded-3xl" : ""
                 }`}
               >
-                <div className="flex flex-col h-full justify-between lg:items-center lg:flex-row">
+                <div className="flex flex-col h-full justify-between items-center lg:items-center lg:flex-row">
                   <ul className="px-6 pt-32 text-white space-y-8 md:px-12 lg:space-y-0 lg:flex lg:space-x-12 lg:pt-0">
-                    <li>
+                    <li className="flex justify-center items-center">
                       <Link
-                        href="#"
+                        href="/store"
                         className="group relative before:absolute before:inset-x-0 before:bottom-0 before:h-2 before:origin-right before:scale-x-0 "
                       >
-                        <span className="relative hover:text-orange-300"></span>
+                        <span className={`relative  text-orange-300 text-center font-extrabold ${alata.className} `}>
+                          API STORE
+                        </span>
                       </Link>
                     </li>
                     <li>
