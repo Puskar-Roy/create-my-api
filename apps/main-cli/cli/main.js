@@ -89,6 +89,21 @@ const runCLI = async (copyDir) => {
           }
         },
       );
+    } else if(
+      backendResponse.backend === "Node Js and Express Js" &&
+      languageResponse.language === "Javascript" &&
+      databaseResponse.database === "PostgreSQL"
+    ){
+      copyDir(
+        path.resolve(__dirname, "../templates/node-express-js-postgres"),
+        path.resolve(process.cwd(), projectResponse.projectname),
+        (err) => {
+          if (err) {
+            console.log("Failed to copy directory:", err);
+            return;
+          }
+        },
+      );
     }
     greetings(projectResponse.projectname, languageResponse.language);
   } else {
