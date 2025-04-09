@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Navbar } from "../components/Navbar";
 import GlobalWrapper from "../components/common/GlobalWrapper";
+import CursorFollower from "../components/common/CursorFollower";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <CursorFollower />
         <GlobalWrapper>
           <Navbar />
           {children}
