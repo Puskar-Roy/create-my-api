@@ -27,7 +27,7 @@
     "enquirer": "^2.4.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.2.0",
+    "@eslint/js": "^10.0.1",
     "eslint": "^9.2.0",
     "globals": "^15.2.0",
     "prettier": "3.3.3"
