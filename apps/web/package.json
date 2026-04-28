@@ -18,7 +18,7 @@
     "mini-svg-data-uri": "^1.4.4",
     "next": "^15.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react-dom": "^19.2.5",
     "react-icons": "^5.2.1",
     "react-tsparticles": "^2.12.2",
     "tailwind-merge": "^2.3.0",
