@@ -14,7 +14,7 @@
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.4.0",
     "clsx": "^2.1.1",
-    "framer-motion": "^11.2.4",
+    "framer-motion": "^12.38.0",
     "mini-svg-data-uri": "^1.4.4",
     "next": "^15.0.0",
     "react": "^18.2.0",
